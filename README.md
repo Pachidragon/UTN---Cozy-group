@@ -1,7 +1,7 @@
 Este proyecto fue creado en el contexto de la carrera Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos durante el segundo cuatrimestre del 2026.
 
 En la estructura se encuentra:
-Carpeta "proyecto en unity" | Aqui se encuentra el proyecto de unity
+- Carpeta "proyecto en unity" | Aqui se encuentra el proyecto de unity
 
 Equipo de desarrollo:
 
