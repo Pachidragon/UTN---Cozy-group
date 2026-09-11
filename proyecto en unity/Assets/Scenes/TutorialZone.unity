@@ -38191,7 +38191,6 @@ GameObject:
   - component: {fileID: 159274400}
   - component: {fileID: 159274399}
   - component: {fileID: 159274403}
-  - component: {fileID: 159274402}
   - component: {fileID: 159274404}
   m_Layer: 0
   m_Name: Main Camera
@@ -38274,27 +38273,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &159274402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159274398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38fdb8dc230cd7a4ea138b35ea45da99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CamaraMovement
-  target: {fileID: 0}
-  offset: {x: 0, y: 0, z: 4}
-  height: 1
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
-  yRotation: 0
-  xRotation: 0
-  xRotationClamped: 0
-  xRotationMin: -15
-  xRotationMax: 45
 --- !u!114 &159274403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469350,7 +469328,6 @@ GameObject:
   - component: {fileID: 1820910900}
   - component: {fileID: 1820910902}
   - component: {fileID: 1820910903}
-  - component: {fileID: 1820910904}
   - component: {fileID: 1820910905}
   m_Layer: 0
   m_Name: Player
@@ -469419,23 +469396,6 @@ MonoBehaviour:
   playerRotateDampening: 12
   jumpHeight: 2
   gravity: -9.8
---- !u!114 &1820910904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820910899}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 906a78347d0658d429e59af6b350d63f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  rb: {fileID: 0}
-  playerInput: {fileID: 0}
-  input: {x: 0, y: 0}
-  jumpForce: 250
-  force: 10
 --- !u!54 &1820910905
 Rigidbody:
   m_ObjectHideFlags: 0
