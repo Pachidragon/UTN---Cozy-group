@@ -1,5 +1,5 @@
-Este proyecto fue creado en el contexto de la carrera Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos de UTN.BA durante el segundo cuatrimestre del 2026.
-Version de Unity utilizada: 6000.3.5f2 
+Este proyecto fue creado en el contexto de la carrera Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos de UTN.BA durante el segundo cuatrimestre del 2026. Contempla consignas realizadas para las materias de Game Design, Motores de desarrollo 1 y Audio interactivo. Se puede jugar en https://pazrozen.itch.io/la-tesis-de-clementina 
+
 
 En la estructura se encuentra:
 - Carpeta "proyecto en unity"  -> Aquí se encuentra el proyecto de unity
@@ -13,3 +13,10 @@ Equipo de desarrollo:
 - Pachidragon | Paz Rozen Mansilla
 - nehuengo | Nehuen Gomez Falcon
 - julifalcon97 | Juliana Noemi Falcon
+
+Información tecnica
+ - Version de Unity utilizada: 6000.3.5f2 
+
+Herramientas utilizadas: 
+- Probuilder
+
