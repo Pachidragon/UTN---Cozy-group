@@ -12,8 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
 
     [Header("Rotation")]
-    [SerializeField] private float smoothTime;
-    private float currentVelocity;
+    [SerializeField] private float rotationSpeed;
 
 
     [Header("Gravity")]
@@ -24,15 +23,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump")]
     [SerializeField] private float jumpForce;
 
+    [Header("Camera")]
+    private Camera mainCamera;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        mainCamera = Camera.main;
     }
 
     private void Update()
     {
-        ApplyGravity();
         ApplyRotation();
+        ApplyGravity();
         ApplyMovement();
         
     }
@@ -54,9 +57,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (input.sqrMagnitude == 0) return;
 
-        var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+        direction = Quaternion.Euler(0.0f, mainCamera.transform.eulerAngles.y, 0.0f) * new Vector3(input.x, 0.0f, input.y);
+        var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void ApplyMovement()
