@@ -55,7 +55,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ApplyRotation()
     {
-        if (input.sqrMagnitude == 0) return;
+        if (input.sqrMagnitude == 0)
+        {
+            direction = Vector3.zero;
+            return;
+        }
 
         direction = Quaternion.Euler(0.0f, mainCamera.transform.eulerAngles.y, 0.0f) * new Vector3(input.x, 0.0f, input.y);
         var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
@@ -71,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
-        direction = new Vector3(input.x, 0.0f, input.y);
         Debug.Log("Player se mueve :)");
     }
 

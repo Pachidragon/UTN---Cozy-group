@@ -7,6 +7,11 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Transform target;
     private float distanceToPlayer;
 
+    [Header("Collision")]
+    [SerializeField] private LayerMask collisionMask;
+    [SerializeField] private float collisionRadius;
+    [SerializeField] private float collisionOffset;
+
     private Vector2 input;
 
     [SerializeField] private MouseSensitivity mouseSensitivity;
@@ -30,7 +35,22 @@ public class CameraManager : MonoBehaviour
     private void LateUpdate()
     {
         transform.eulerAngles = new Vector3(cameraRotation.Pitch, cameraRotation.Yaw, 0.0f);
-        transform.position = target.position - transform.forward * distanceToPlayer;
+
+        Vector3 desiredPosition = target.position - transform.forward * distanceToPlayer;
+        transform.position = GetCollisionAdjustedPosition(desiredPosition);
+    }
+
+    private Vector3 GetCollisionAdjustedPosition(Vector3 desiredPosition)
+    {
+        Vector3 direction = desiredPosition - target.position;
+        float maxDistance = direction.magnitude;
+        direction.Normalize();
+
+        if(Physics.SphereCast(target.position, collisionRadius, direction, out RaycastHit hit, maxDistance, collisionMask))
+        {
+            return target.position + direction * (hit.distance - collisionOffset);
+        }
+        return desiredPosition;
     }
 }
 
