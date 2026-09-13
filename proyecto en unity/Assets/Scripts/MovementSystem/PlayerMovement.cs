@@ -5,17 +5,24 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     private Vector2 input;
     private CharacterController characterController;
     private Vector3 direction;
-
-    [SerializeField] private float smoothTime;
-    private float currentVelocity;
     [SerializeField] private float speed;
 
+    [Header("Rotation")]
+    [SerializeField] private float smoothTime;
+    private float currentVelocity;
+
+
+    [Header("Gravity")]
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier;
     private float velocity;
+
+    [Header("Jump")]
+    [SerializeField] private float jumpForce;
 
     private void Awake()
     {
@@ -32,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if(characterController.isGrounded && velocity < 0.0f)
+        if(IsGrounded() && velocity < 0.0f)
         {
             velocity = -1.0f;
         }
@@ -63,4 +70,14 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(input.x, 0.0f, input.y);
         Debug.Log("Player se mueve :)");
     }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        if (!IsGrounded()) return;
+
+        velocity += jumpForce;
+    }
+
+    private bool IsGrounded() => characterController.isGrounded;
 }
