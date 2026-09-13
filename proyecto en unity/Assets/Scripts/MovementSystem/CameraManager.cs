@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    private float distanceToPlayer;
+    [SerializeField] private float distanceToPlayer;
 
     [Header("Collision")]
     [SerializeField] private LayerMask collisionMask;
@@ -17,8 +17,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private MouseSensitivity mouseSensitivity;
     [SerializeField] private CameraAngle cameraAngle;
     private CameraRotation cameraRotation;
-
-    private void Awake() => distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
     public void Look(InputAction.CallbackContext context)
     {
