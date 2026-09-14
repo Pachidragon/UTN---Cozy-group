@@ -28,13 +28,15 @@ public class PlayerInteractor : MonoBehaviour
 
     private void PlayerInteracted(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             Ray ray = new Ray(interactPivot.position, interactPivot.forward);
 
-            if (!Physics.Raycast(ray, out RaycastHit hitInfo, interactionDistance)) return;
+            int capaInteractuable = LayerMask.GetMask("Interactuable");
 
-            if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactableObject))
+            if (!Physics.Raycast(ray, out RaycastHit hitInfo, interactionDistance, capaInteractuable)) return;
+
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactableObject))
             {
                 interactableObject.Interact();
             }
