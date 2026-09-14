@@ -25,6 +25,8 @@ public class NPCChicken : NPCBase
         }
     }
 
+    private bool alreadyTalked = false;
+
     public override void Talk()
     {
         if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToFarmer)
@@ -34,5 +36,12 @@ public class NPCChicken : NPCBase
         }
 
         base.Talk();
+
+        if (!alreadyTalked && FarmQuestManager.Instance != null)
+        {
+            alreadyTalked = true;
+            FarmQuestManager.Instance.chickensInterrogated++;
+            Debug.Log("[Misión]: Has interrogado a " + FarmQuestManager.Instance.chickensInterrogated + " gallinas.");
+        }
     }
 }
