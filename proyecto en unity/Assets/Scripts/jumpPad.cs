@@ -1,24 +1,64 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class jumpPad : MonoBehaviour
 {
+    [SerializeField] private float fuerzaSalto;
+    [SerializeField] private float gravedadSimulada = 30f;
 
-    [SerializeField] private float jumpForce;
+
+    private class DatosSaltoJugador
+    {
+        public CharacterController controlador;
+        public float velocidadVertical;
+    }
+
+    private List<DatosSaltoJugador> jugadoresSaltando = new List<DatosSaltoJugador>();
 
     private void OnTriggerEnter(Collider other)
-
-    { 
-        
-        Rigidbody rb = other.GetComponent <Rigidbody>();
-        
-        if (rb != null)
+    {
+        if (other.CompareTag("Player"))
         {
+            CharacterController cc = other.GetComponent<CharacterController>();
+            if (cc != null)
+            {
 
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+                DatosSaltoJugador datos = jugadoresSaltando.Find(j => j.controlador == cc);
+
+                if (datos == null)
+                {
+                    datos = new DatosSaltoJugador { controlador = cc };
+                    jugadoresSaltando.Add(datos);
+                }
 
 
-            rb.AddForce(Vector3.up* jumpForce, ForceMode.Impulse);
+                datos.velocidadVertical = fuerzaSalto;
+            }
         }
     }
 
+    void Update()
+    {
+        for (int i = jugadoresSaltando.Count - 1; i >= 0; i--)
+        {
+            DatosSaltoJugador jugador = jugadoresSaltando[i];
+
+            if (jugador.controlador == null || !jugador.controlador.gameObject.activeInHierarchy)
+            {
+                jugadoresSaltando.RemoveAt(i);
+                continue;
+            }
+
+            jugador.velocidadVertical -= gravedadSimulada * Time.deltaTime;
+
+            Vector3 vectorImpulso = new Vector3(0f, jugador.velocidadVertical, 0f) * Time.deltaTime;
+            jugador.controlador.Move(vectorImpulso);
+
+            if (jugador.controlador.isGrounded && jugador.velocidadVertical <= 0)
+            {
+                jugadoresSaltando.RemoveAt(i);
+                
+            }
+        }
+    }
 }
