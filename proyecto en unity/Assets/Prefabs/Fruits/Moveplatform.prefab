@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4623397345570756801}
   - component: {fileID: 5381141740056675458}
   - component: {fileID: 1947536325230907279}
+  - component: {fileID: 2629123634466606385}
+  - component: {fileID: 5778699118903962727}
   m_Layer: 0
   m_Name: Moveplatform
   m_TagString: movePlatform
@@ -371,4 +373,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::platformMovement
   direccionMovimiento: {x: 1, y: 0, z: 0}
   distancia: 4
-  velocidad: 4
+  velocidad: 2
+--- !u!65 &2629123634466606385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224115334713269820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9869385, y: 0.6464991, z: 1.8466644}
+  m_Center: {x: -0.011947632, y: 0.07586315, z: -0.03379059}
+--- !u!54 &5778699118903962727
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224115334713269820}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
