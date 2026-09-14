@@ -4,6 +4,7 @@ public abstract class NPCBase : MonoBehaviour, IInteractable
 {
     [SerializeField] protected string nameNPC;
     [SerializeField] protected string[] dialogues;
+
     public virtual void Interact()
     {
         Talk();
@@ -13,7 +14,11 @@ public abstract class NPCBase : MonoBehaviour, IInteractable
     {
         if (dialogues != null && dialogues.Length > 0)
         {
-            Debug.Log($"[{nameNPC}]: {dialogues[0]}");
+            Debug.Log("[" + nameNPC + "]: " + dialogues[0]);
+        }
+        else
+        {
+            Debug.Log("[" + nameNPC + "]: No tengo diálogos configurados en el Inspector.");
         }
     }
 }

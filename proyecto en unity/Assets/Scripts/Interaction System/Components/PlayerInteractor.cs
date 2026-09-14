@@ -10,14 +10,20 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnEnable()
     {
-        interactionReference.action.Enable();
-        interactionReference.action.started += PlayerInteracted;
+        if (interactionReference != null && interactionReference.action != null)
+        {
+            interactionReference.action.Enable();
+            interactionReference.action.started += PlayerInteracted;
+        }
     }
 
     private void OnDisable()
     {
-        interactionReference.action.started -= PlayerInteracted;
-        interactionReference.action.Disable();
+        if (interactionReference != null && interactionReference.action != null)
+        {
+            interactionReference.action.started -= PlayerInteracted;
+            interactionReference.action.Disable();
+        }
     }
 
     private void PlayerInteracted(InputAction.CallbackContext context)
