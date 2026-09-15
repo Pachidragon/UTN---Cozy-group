@@ -45,7 +45,7 @@ public class NPCTutor : NPCBase
 
     public override void Talk()
     {
-        Debug.Log("[" + nameNPC + "]: ¿Con qué área necesitas ayuda?");
+        Debug.Log("[" + nameNPC + "]: ¿Qué te pasa, mi amor? ¿En qué te ayuda esta deidad?");
         Debug.Log("[Presiona 1] El Bosque");
         Debug.Log("[Presiona 2] La Zona de Hongos");
         Debug.Log("[Presiona 3] La Cueva");
