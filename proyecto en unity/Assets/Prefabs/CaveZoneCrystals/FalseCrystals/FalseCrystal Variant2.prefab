@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FalseCrystal Variant2
       objectReference: {fileID: 0}
+    - target: {fileID: 538061373434320802, guid: c8a2bc84860c9ba4bba1bd5189a27476, type: 3}
+      propertyPath: wrongItem
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3290215241499012615, guid: c8a2bc84860c9ba4bba1bd5189a27476, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.64

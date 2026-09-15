@@ -25,7 +25,7 @@ public class cauldron : NPCBase
         if (prefabPotion != null && pivotSpawn != null)
         {
             Instantiate(prefabPotion, pivotSpawn.position, pivotSpawn.rotation);
-            Debug.Log("[Sistema]: Objeto instanciado bien");
+            Debug.Log("Objeto instanciado bien");
         }
     }
 }
