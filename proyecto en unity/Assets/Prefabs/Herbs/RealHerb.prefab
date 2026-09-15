@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8231264549843875926}
   - component: {fileID: 2358431251582133979}
   - component: {fileID: 1993356197209520503}
+  - component: {fileID: -1978637007407707556}
   m_Layer: 6
   m_Name: RealHerb
   m_TagString: Untagged
@@ -673,7 +674,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -695,7 +696,19 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.8043857, y: 1.3221514, z: 1.7554493}
   m_Center: {x: 0.08500552, y: 0.059718013, z: 0.033801556}
+--- !u!114 &-1978637007407707556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827797592756452437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recolectable

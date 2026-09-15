@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6584395385242169755}
   - component: {fileID: 174041571347853205}
   - component: {fileID: 5524659350155063311}
+  - component: {fileID: 538061373434320802}
   m_Layer: 6
   m_Name: FalseCrystal
   m_TagString: Untagged
@@ -356,3 +357,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &538061373434320802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351527719951380689}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recolectable

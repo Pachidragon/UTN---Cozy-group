@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 3328215831757203762}
   - component: {fileID: 982120712403808852}
   - component: {fileID: 3633039514689628406}
+  - component: {fileID: -8557524091809096427}
   m_Layer: 6
   m_Name: RealCrystal
   m_TagString: Untagged
@@ -744,3 +745,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-8557524091809096427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953176391821811645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recolectable
