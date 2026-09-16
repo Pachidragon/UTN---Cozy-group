@@ -1,19 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
+// Controla una plataforma que impulsa al jugador hacia arriba y simula su salto.
 
 public class jumpPad : MonoBehaviour
 {
-    [SerializeField] private float fuerzaSalto;
-    [SerializeField] private float gravedadSimulada = 30f;
+    [SerializeField] private float fuerzaSalto;  // Fuerza inicial del impulso vertical.
+    [SerializeField] private float gravedadSimulada = 30f; // Gravedad aplicada durante el salto.
 
 
-    private class DatosSaltoJugador
+    private class DatosSaltoJugador     // Almacena los datos necesarios para controlar el salto de cada jugador.
     {
         public CharacterController controlador;
         public float velocidadVertical;
     }
 
-    private List<DatosSaltoJugador> jugadoresSaltando = new List<DatosSaltoJugador>();
+    private List<DatosSaltoJugador> jugadoresSaltando = new List<DatosSaltoJugador>();  // Lista de jugadores que están realizando un salto.
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,7 +40,7 @@ public class jumpPad : MonoBehaviour
 
     void Update()
     {
-        for (int i = jugadoresSaltando.Count - 1; i >= 0; i--)
+        for (int i = jugadoresSaltando.Count - 1; i >= 0; i--)  // Recorre la lista desde el final para poder eliminar jugadores durante el recorrido.
         {
             DatosSaltoJugador jugador = jugadoresSaltando[i];
 
@@ -56,8 +57,8 @@ public class jumpPad : MonoBehaviour
 
             if (jugador.controlador.isGrounded && jugador.velocidadVertical <= 0)
             {
-                jugadoresSaltando.RemoveAt(i);
-                
+                jugadoresSaltando.RemoveAt(i); // Finaliza el salto y elimina al jugador de la lista.
+
             }
         }
     }

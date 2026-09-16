@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+// Controla el diálogo del NPC tutor (Moria) y permite al jugador consultar información sobre distintas zonas.
 
 public class NPCTutor : NPCBase
 {
-    [SerializeField] private float distanceToTalk = 4f;
+    [SerializeField] private float distanceToTalk = 4f; // Distancia máxima a la que el jugador puede interactuar con el NPC.
     private Transform playerTransform;
     private bool options = false;
 
-    void Start()
+    void Start() // Busca y guarda la referencia al jugador al iniciar.
     {
         GameObject playerObj = GameObject.Find("Player");
         if (playerObj != null)
@@ -16,7 +17,7 @@ public class NPCTutor : NPCBase
         }
     }
 
-    void Update()
+    void Update() // Comprueba la distancia al jugador y gestiona las entradas de interacción y selección de diálogo.
     {
         if (playerTransform == null) return;
 
@@ -43,7 +44,7 @@ public class NPCTutor : NPCBase
         }
     }
 
-    public override void Talk()
+    public override void Talk() // Muestra el diálogo del tutor y las opciones de consulta disponibles.
     {
         Debug.Log("[" + nameNPC + "]: ¿Qué te pasa, mi amor? ¿En qué te ayuda esta deidad?");
         Debug.Log("[Presiona 1] El Bosque");
@@ -54,7 +55,7 @@ public class NPCTutor : NPCBase
         options = true;
     }
 
-    private void Reply(int opcionElegida)
+    private void Reply(int opcionElegida) // Muestra la respuesta correspondiente a la opción seleccionada
     {
         switch (opcionElegida)
         {
@@ -72,6 +73,6 @@ public class NPCTutor : NPCBase
                 break;
         }
 
-        options = false;
+        options = false; // Cierra las opciones después de seleccionar una respuesta.
     }
 }

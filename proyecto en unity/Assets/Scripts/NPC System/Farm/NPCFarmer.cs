@@ -1,4 +1,5 @@
 using UnityEngine;
+// Controla la interacción con la granjera y modifica su diálogo según el progreso de la misión.
 
 public class NPCFarmer : NPCBase
 {
@@ -30,7 +31,7 @@ public class NPCFarmer : NPCBase
         }
     }
 
-    public override void Talk()
+    public override void Talk() // Muestra un diálogo diferente según si el jugador ya habló con el caballo.
     {
         if (FarmQuestManager.Instance != null && FarmQuestManager.Instance.talkToHorse)
         {
@@ -38,7 +39,8 @@ public class NPCFarmer : NPCBase
         }
         else
         {
-            base.Talk();
+            base.Talk(); // Ejecuta el diálogo configurado en NPC
+
             if (FarmQuestManager.Instance != null)
             {
                 FarmQuestManager.Instance.talkToFarmer = true;

@@ -1,13 +1,14 @@
 using UnityEngine;
+// Controla la interacción con el NPC que desencadena la victoria del juego (Mirtha)
 
 public class NPCVictoria : NPCBase
 {
     [SerializeField] private GameObject prefabItemFinal;
     [SerializeField] private Transform pivotSpawnItemFinal;
 
-    private bool win = false;
+    private bool win = false; // Indica si la victoria ya fue otorgada.
 
-    public override void Talk()
+    public override void Talk() // Ejecuta el diálogo del NPC 
     {
         if (win) return;
 
@@ -15,7 +16,7 @@ public class NPCVictoria : NPCBase
         OtorgarVictoria();
     }
 
-    private void OtorgarVictoria()
+    private void OtorgarVictoria()  // Entrega el objeto final y activa el estado de victoria.
     {
         win = true;
 
@@ -26,7 +27,7 @@ public class NPCVictoria : NPCBase
 
         if (GameCode.Instance != null)
         {
-            GameCode.Instance.VictoryOn();
+            GameCode.Instance.VictoryOn(); // Activa el panel de victoria.
         }
     }
 }

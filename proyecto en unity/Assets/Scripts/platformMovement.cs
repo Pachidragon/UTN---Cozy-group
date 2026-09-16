@@ -1,18 +1,18 @@
 using UnityEngine;
-
+// Controla el movimiento de una plataforma y permite que el jugador se desplace con ella.
 public class platformMovement : MonoBehaviour
 {
-    [SerializeField] Vector3 direccionMovimiento = Vector3.up;
-    [SerializeField] float distancia;
-    [SerializeField] float velocidad;
+    [SerializeField] Vector3 direccionMovimiento = Vector3.up; // Dirección en la que se mueve la plataforma.
+    [SerializeField] float distancia;  // Distancia total que recorre la plataforma.
+    [SerializeField] float velocidad; // Velocidad del movimiento.
 
-    private Vector3 posicionInicial;
-    private Rigidbody rb;
+    private Vector3 posicionInicial;  // Posición de la plataforma al comenzar.
+    private Rigidbody rb; // Rigidbody utilizado para mover la plataforma.
 
     private CharacterController jugadorCc;
     private Vector3 posicionPreviaPlataforma;
 
-    void Start()
+    void Start() // Guarda la posición inicial de la plataforma.
     {
         posicionInicial = transform.position;
         posicionPreviaPlataforma = transform.position;
@@ -42,7 +42,7 @@ public class platformMovement : MonoBehaviour
         rb.MovePosition(nuevaPosicion);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // Comprueba si el objeto que entra es el jugador.
     {
         if (other.CompareTag("Player"))
         {
@@ -54,7 +54,7 @@ public class platformMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) // Comprueba si el objeto que sale es el jugador.
     {
         if (other.CompareTag("Player"))
         {

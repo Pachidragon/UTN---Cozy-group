@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+// Gestiona la interacción del jugador con objetos interactuables mediante un Raycast.
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private Transform interactPivot;
-    [SerializeField] private float interactionDistance;
+    [SerializeField] private Transform interactPivot; // Punto desde donde se inicia la interacción.
+    [SerializeField] private float interactionDistance; // Distancia máxima de interacción.
 
-    [SerializeField] private InputActionReference interactionReference;
+    [SerializeField] private InputActionReference interactionReference; // Acción de entrada utilizada para interactuar.
 
-    private void OnEnable()
+    private void OnEnable() // Habilita la acción de interacción y registra el método que la ejecuta.
     {
         if (interactionReference != null && interactionReference.action != null)
         {
@@ -17,7 +17,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDisable() // Deshabilita la acción de interacción y elimina el registro del método.
     {
         if (interactionReference != null && interactionReference.action != null)
         {
@@ -26,7 +26,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void PlayerInteracted(InputAction.CallbackContext context)
+    private void PlayerInteracted(InputAction.CallbackContext context) // Detecta el objeto frente al jugador y ejecuta su interacción.
     {
         if (context.started)
         {
@@ -43,7 +43,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() // Dibuja en la Scene View el alcance de la interacción del jugador.
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(interactPivot.position, interactPivot.forward * interactionDistance);

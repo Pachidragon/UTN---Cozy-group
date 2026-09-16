@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// Controla la interacción con el caballo y actualiza el progreso de la misión.
 public class NPCHorse : NPCBase
 {
     [SerializeField] private float distanciaParaHablar = 3f;
@@ -11,7 +11,7 @@ public class NPCHorse : NPCBase
         if (playerObj != null) playerTransform = playerObj.transform;
     }
 
-    void Update()
+    void Update() // Comprueba la distancia al jugador y permite iniciar la interacción.
     {
         if (playerTransform == null) return;
         float distancia = Vector3.Distance(transform.position, playerTransform.position);
@@ -25,7 +25,7 @@ public class NPCHorse : NPCBase
         }
     }
 
-    public override void Talk()
+    public override void Talk() // Muestra el diálogo del caballo y actualiza el progreso de la misión.
     {
         if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToFarmer)
         {
@@ -33,10 +33,10 @@ public class NPCHorse : NPCBase
             return;
         }
 
-        base.Talk();
+        base.Talk(); // Ejecuta el diálogo configurado en NPC
         if (FarmQuestManager.Instance != null)
         {
-            FarmQuestManager.Instance.talkToHorse = true;
+            FarmQuestManager.Instance.talkToHorse = true; // Registra que el jugador habló con el caballo.
         }
     }
 }

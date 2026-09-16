@@ -1,4 +1,5 @@
 using UnityEngine;
+// Controla la interacción con el gallo y la aparición de la hierba necesaria para la misión.
 
 public class NPCRooster : NPCBase
 {
@@ -28,8 +29,9 @@ public class NPCRooster : NPCBase
         }
     }
 
-    public override void Talk()
+    public override void Talk() // Muestra el diálogo del gallo y, si se cumple la condición, hace aparecer la hierba.
     {
+        
         if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToHorse)
         {
             Debug.Log("[" + nameNPC + "]: ¡Qué bonita vista hay desde aquí arriba! ¡Ki-Kiri-Kí!");
@@ -40,10 +42,10 @@ public class NPCRooster : NPCBase
 
         if (itemTrueHerb != null)
         {
-            itemTrueHerb.SetActive(true);
+            itemTrueHerb.SetActive(true); // Hace aparecer la hierba en el techo.
             Debug.Log("¡La hierba ha aparecido en el techo!");
-            this.enabled = false;
-        }
+            this.enabled = false; // Desactiva este script para evitar repetir la interacción.
+            }
     }
 }
 

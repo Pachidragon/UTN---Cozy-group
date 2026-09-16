@@ -1,4 +1,5 @@
 using UnityEngine;
+// Controla la interacción con las gallinas y registra su interrogación como parte de la misión.
 
 public class NPCChicken : NPCBase
 {
@@ -25,9 +26,9 @@ public class NPCChicken : NPCBase
         }
     }
 
-    private bool alreadyTalked = false;
+    private bool alreadyTalked = false; // Indica si esta gallina ya fue interrogada.
 
-    public override void Talk()
+    public override void Talk() // Muestra el diálogo de la gallina y registra su interrogación en la misión.
     {
         if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToFarmer)
         {
@@ -37,11 +38,11 @@ public class NPCChicken : NPCBase
 
         base.Talk();
 
-        if (!alreadyTalked && FarmQuestManager.Instance != null)
+        if (!alreadyTalked && FarmQuestManager.Instance != null) // Comprueba que esta gallina no haya sido interrogada anteriormente.
         {
-            alreadyTalked = true;
+            alreadyTalked = true; // Marca a la gallina como interrogada.
             FarmQuestManager.Instance.chickensInterrogated++;
-            Debug.Log("[Misión]: Has interrogado a " + FarmQuestManager.Instance.chickensInterrogated + " gallinas.");
+            Debug.Log("[Misión]: Has interrogado a " + FarmQuestManager.Instance.chickensInterrogated + " gallinas."); // Informa el progreso de la misión.
         }
     }
 }

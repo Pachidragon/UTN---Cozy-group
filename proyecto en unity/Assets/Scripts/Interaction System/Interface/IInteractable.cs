@@ -2,5 +2,5 @@
 
 public interface IInteractable
 {
-    void Interact();
+    void Interact(); // Define el método que deben implementar los objetos interactuables
 }

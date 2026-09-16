@@ -1,12 +1,12 @@
 using UnityEngine;
-
+// Controla el teletransporte del jugador hacia un punto de destino.
 public class Portal : MonoBehaviour
 {
-    public Transform destino;
+    public Transform destino; // Punto al que será teletransportado el jugador.
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))  // Comprueba si el objeto que entra al portal es el jugador.
         {
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;

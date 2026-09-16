@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+// Controla el movimiento, rotación, gravedad y salto del jugador.
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,13 +26,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")]
     private Camera mainCamera;
 
-    private void Awake()
+    private void Awake() // Obtiene las referencias necesarias al iniciar el jugador.
     {
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
     }
 
-    private void Update()
+    private void Update() // Actualiza la rotación, gravedad y movimiento del jugador.
     {
         ApplyRotation();
         ApplyGravity();
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void ApplyGravity()
+    private void ApplyGravity() // Aplica la gravedad y actualiza la velocidad vertical del jugador.
     {
         if(IsGrounded() && velocity < 0.0f)
         {
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         
         direction.y = velocity;
     }
-    private void ApplyRotation()
+    private void ApplyRotation() // Calcula y aplica la rotación del jugador según la dirección de movimiento y la cámara.
     {
         if (input.sqrMagnitude == 0)
         {
@@ -67,18 +67,18 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    private void ApplyMovement()
+    private void ApplyMovement() // Mueve al jugador utilizando el CharacterController.
     {
         characterController.Move(direction * speed * Time.deltaTime);
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void Move(InputAction.CallbackContext context) // Recibe la entrada de movimiento desde el Input System
     {
         input = context.ReadValue<Vector2>();
         Debug.Log("Player se mueve :)");
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context) // Ejecuta el salto cuando el jugador presiona el botón correspondiente.
     {
         if (!context.started) return;
         if (!IsGrounded()) return;
@@ -86,5 +86,5 @@ public class PlayerMovement : MonoBehaviour
         velocity += jumpForce;
     }
 
-    private bool IsGrounded() => characterController.isGrounded;
+    private bool IsGrounded() => characterController.isGrounded; // Comprueba si el jugador está en contacto con el suelo.
 }
