@@ -1,0 +1,35 @@
+﻿Parcial I - Enlaces y acceso al prototipo
+Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos
+Motores de Desarrollo 1
+Docentes
+* Matias Sebastian Miro
+* Matias Nicolas Iaria
+* Federico Zinni
+Grupo F9 (comisiones Federico Adjunto)
+* Braian Cavagnero - Comisión 8
+* Barbara Susana De Bock Peralta - Comision 7
+* Violeta Ocampo Pelayes - Comision 9
+* Paz Rozen Mansilla - Comisión 7
+* Juliana Noemi Falcon - Comisión 9
+* Nehuen Gomez Falcon - Comision 9
+
+
+Carga 3 – Enlaces y acceso al prototipo: archivo .txt que contenga el enlace a itch.io, el enlace a GitHub y, si corresponde, el enlace alternativo de descarga de la build. También deberá incluir el nombre del proyecto y los integrantes.
+
+
+Repositorio en Github
+https://github.com/Pachidragon/UTN---Cozy-group
+Enlace a itchio - CONTRASEÑA: tesis
+https://pazrozen.itch.io/la-tesis-de-clementina 
+Enlace al video
+https://youtu.be/jG6FPue_zR8 
+https://drive.google.com/file/d/1pSkK32F1DLZXol5VydhpgyW3B9qBSWts/view?usp=sharing 
+
+
+Usuarios de github 
+* braianc86 | Braian Cavagnero
+* bdb94 | Barbara Susana De Bock Peralta
+* violetaocampo | Violeta Ocampo Pelayes
+* Pachidragon | Paz Rozen Mansilla
+* nehuengo | Nehuen Gomez Falcon
+* julifalcon97 | Juliana Noemi Falcon
