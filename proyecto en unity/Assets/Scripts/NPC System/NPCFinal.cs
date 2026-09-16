@@ -5,18 +5,38 @@ public class NPCVictoria : NPCBase
 {
     [SerializeField] private GameObject prefabItemFinal;
     [SerializeField] private Transform pivotSpawnItemFinal;
-
+    [SerializeField] private float distanceToTalk = 4f;
+    private Transform playerTransform;
     private bool win = false; // Indica si la victoria ya fue otorgada.
 
+    void Start()
+    {
+        GameObject playerObj = GameObject.Find("Player");
+        if (playerObj != null) playerTransform = playerObj.transform;
+    }
+    void Update()
+    {
+        if (playerTransform == null || win) return;
+
+        float distancia = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distancia <= distanceToTalk)
+        {
+            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                Interact();
+            }
+        }
+    }
     public override void Talk() // Ejecuta el diálogo del NPC 
     {
         if (win) return;
 
         base.Talk();
-        OtorgarVictoria();
+        VictoryDone();
     }
 
-    private void OtorgarVictoria()  // Entrega el objeto final y activa el estado de victoria.
+    private void VictoryDone()  // Entrega el objeto final y activa el estado de victoria.
     {
         win = true;
 
