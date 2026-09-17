@@ -15,8 +15,7 @@ Grupo F9 (comisiones Federico Adjunto)
 
 
 Carga 3 – Enlaces y acceso al prototipo: archivo .txt que contenga el enlace a itch.io, el enlace a GitHub y, si corresponde, el enlace alternativo de descarga de la build. También deberá incluir el nombre del proyecto y los integrantes.
-
-
+Título del videojuego: La Tesis de Clementina
 Repositorio en Github
 https://github.com/Pachidragon/UTN---Cozy-group
 Enlace a itchio - CONTRASEÑA: tesis
