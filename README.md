@@ -1,9 +1,8 @@
-Este proyecto fue creado en el contexto de la carrera Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos de UTN.BA durante el segundo cuatrimestre del 2026. Contempla consignas realizadas para las materias de Game Design, Motores de desarrollo 1 y Audio interactivo. Se puede jugar en https://pazrozen.itch.io/la-tesis-de-clementina 
-
+Este proyecto fue creado en el contexto de la carrera Tecnicatura Universitaria en Desarrollo y Producción de Videojuegos de UTN.BA durante el segundo cuatrimestre del 2026. Contempla consignas realizadas para las materias de Game Design, Motores de desarrollo 1 y Audio interactivo. Se puede jugar en https://pazrozen.itch.io/la-tesis-de-clementina.
 
 En la estructura se encuentra:
 - Carpeta "proyecto en unity"  -> Aquí se encuentra el proyecto de unity
-- Carpeta "Documentación" -> Aquí se encuentran los archivos referidos a documentación del juego, como GDD o High Concept
+- Carpeta "Documentación" -> Aquí se encuentran los archivos referidos a documentación del juego, como GDD o High Concept, solicitados por las distintas materias
   
 Equipo de desarrollo:
 
