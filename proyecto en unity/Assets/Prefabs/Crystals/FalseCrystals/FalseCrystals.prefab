@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FalseCrystals
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3695666860197271449, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -133,5 +137,50 @@ PrefabInstance:
     - {fileID: -1025663018108745142, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
     - {fileID: -3756473180518285571, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7651671913020348217}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5122233740491587165}
   m_SourcePrefab: {fileID: 100100000, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
+--- !u!1 &6004279238650843936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 83e9502c8f21a4a4b948e634d1abdd73, type: 3}
+  m_PrefabInstance: {fileID: 6886590927381753457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7651671913020348217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004279238650843936}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.12523, y: 3.1491215, z: 0.81438017}
+  m_Center: {x: -0.10839794, y: 1.0745264, z: -0.18972403}
+--- !u!114 &5122233740491587165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004279238650843936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  wrongItem: 1
