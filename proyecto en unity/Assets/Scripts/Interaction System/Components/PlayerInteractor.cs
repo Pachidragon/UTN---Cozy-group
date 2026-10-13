@@ -1,14 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-// Gestiona la interacción del jugador con objetos interactuables mediante un Raycast.
+
+// Detecta objetos interactuables cercanos mediante una esfera y gestiona la interacción del jugador.
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private Transform interactPivot; // Punto desde donde se inicia la interacción.
-    [SerializeField] private float interactionDistance; // Distancia máxima de interacción.
+    [Header("Detección")]
+    [SerializeField] private Transform interactPivot; // Punto desde donde se calcula la esfera.
+    [SerializeField] private float interactionRadius; // Tamaño de la esfera (más grande = menos preciso).
+    [SerializeField] private float forwardOffset; // Qué tan adelante del pivot se coloca la esfera.
+    [SerializeField] private LayerMask interactableLayer; // Capa de los objetos interactuables.
 
+    [Header("Input")]
     [SerializeField] private InputActionReference interactionReference; // Acción de entrada utilizada para interactuar.
 
-    private void OnEnable() // Habilita la acción de interacción y registra el método que la ejecuta.
+    [Header("UI")]
+    [SerializeField] private GameObject interactPrompt; // Cartel "E Interactuar".
+
+    private readonly Collider[] hits = new Collider[8]; // Buffer reutilizable para no generar basura cada frame.
+    private IInteractable currentInteractable;
+
+    private void OnEnable()
     {
         if (interactionReference != null && interactionReference.action != null)
         {
@@ -17,35 +28,70 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void OnDisable() // Deshabilita la acción de interacción y elimina el registro del método.
+    private void OnDisable()
     {
         if (interactionReference != null && interactionReference.action != null)
         {
             interactionReference.action.started -= PlayerInteracted;
             interactionReference.action.Disable();
         }
+
+        SetPromptVisible(false);
     }
 
-    private void PlayerInteracted(InputAction.CallbackContext context) // Detecta el objeto frente al jugador y ejecuta su interacción.
+    private void Update()
     {
-        if (context.started)
+        currentInteractable = FindClosestInteractable();
+        SetPromptVisible(currentInteractable != null);
+    }
+
+    private void PlayerInteracted(InputAction.CallbackContext context)
+    {
+        if (currentInteractable != null)
         {
-            Ray ray = new Ray(interactPivot.position, interactPivot.forward);
-
-            int capaInteractuable = LayerMask.GetMask("Interactuable");
-
-            if (!Physics.Raycast(ray, out RaycastHit hitInfo, interactionDistance, capaInteractuable)) return;
-
-            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactableObject))
-            {
-                interactableObject.Interact();
-            }
+            currentInteractable.Interact();
         }
     }
 
-    private void OnDrawGizmos() // Dibuja en la Scene View el alcance de la interacción del jugador.
+    // Devuelve el interactuable más cercano dentro de la esfera, o null si no hay ninguno.
+    private IInteractable FindClosestInteractable()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(interactPivot.position, interactPivot.forward * interactionDistance);
+        int count = Physics.OverlapSphereNonAlloc(GetSphereCenter(), interactionRadius, hits, interactableLayer);
+
+        IInteractable closest = null;
+        float closestDistance = float.MaxValue;
+
+        for (int i = 0; i < count; i++)
+        {
+            IInteractable interactable = hits[i].GetComponentInParent<IInteractable>();
+            if (interactable == null) continue;
+
+            float distance = (hits[i].transform.position - interactPivot.position).sqrMagnitude;
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = interactable;
+            }
+        }
+
+        return closest;
+    }
+
+    private Vector3 GetSphereCenter() => interactPivot.position + interactPivot.forward * forwardOffset;
+
+    private void SetPromptVisible(bool visible)
+    {
+        if (interactPrompt != null && interactPrompt.activeSelf != visible)
+        {
+            interactPrompt.SetActive(visible);
+        }
+    }
+
+    private void OnDrawGizmos() // Dibuja en la Scene View el área de detección.
+    {
+        if (interactPivot == null) return;
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(GetSphereCenter(), interactionRadius);
     }
 }
