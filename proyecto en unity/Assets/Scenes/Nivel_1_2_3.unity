@@ -6598,9 +6598,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274, y: 72}
+  m_AnchoredPosition: {x: -494, y: 72.0002}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 1.6, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76013667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248954,18 +248954,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1880826259}
     m_Modifications:
-    - target: {fileID: 3754071924464771115, guid: af27de1934c92ee4a986c4f39c090934, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.492537
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754071924464771115, guid: af27de1934c92ee4a986c4f39c090934, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.4925373
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754071924464771115, guid: af27de1934c92ee4a986c4f39c090934, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.492537
-      objectReference: {fileID: 0}
     - target: {fileID: 3754071924464771115, guid: af27de1934c92ee4a986c4f39c090934, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.32
@@ -612220,6 +612208,8 @@ MonoBehaviour:
     m_Bits: 64
   interactionReference: {fileID: 646798831}
   interactPrompt: {fileID: 132457173}
+  cam: {fileID: 159274400}
+  promptOffset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1705960004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6693411366667476495, guid: e166f4d8de8647e4ba061a98c0849d33, type: 3}
@@ -624259,6 +624249,10 @@ PrefabInstance:
     - target: {fileID: 8485199527601493945, guid: ac040961f960bfe47baaea3d45408fa7, type: 3}
       propertyPath: m_Name
       value: RealFruit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485199527601493945, guid: ac040961f960bfe47baaea3d45408fa7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -640756,18 +640750,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1880826259}
     m_Modifications:
-    - target: {fileID: 8515714529602319390, guid: 41e939fd3527f904cbcbb35d960ba325, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.0597012
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515714529602319390, guid: 41e939fd3527f904cbcbb35d960ba325, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.0597014
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515714529602319390, guid: 41e939fd3527f904cbcbb35d960ba325, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.0597012
-      objectReference: {fileID: 0}
     - target: {fileID: 8515714529602319390, guid: 41e939fd3527f904cbcbb35d960ba325, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.522392
@@ -664180,18 +664162,6 @@ PrefabInstance:
       value: FalseCrystals
       objectReference: {fileID: 0}
     - target: {fileID: 6348013389032786330, guid: 50485d2bd31bc984b809c171fce972e4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.1641788
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348013389032786330, guid: 50485d2bd31bc984b809c171fce972e4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.164179
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348013389032786330, guid: 50485d2bd31bc984b809c171fce972e4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.1641788
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348013389032786330, guid: 50485d2bd31bc984b809c171fce972e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.94
       objectReference: {fileID: 0}
@@ -664414,14 +664384,6 @@ PrefabInstance:
     - target: {fileID: 6055352963407690055, guid: a1d727dc10657124299d33e75bf72764, type: 3}
       propertyPath: m_Name
       value: RealCrystals Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 6864400473839264765, guid: a1d727dc10657124299d33e75bf72764, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.61999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6864400473839264765, guid: a1d727dc10657124299d33e75bf72764, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.61999995
       objectReference: {fileID: 0}
     - target: {fileID: 6864400473839264765, guid: a1d727dc10657124299d33e75bf72764, type: 3}
       propertyPath: m_LocalPosition.x
@@ -664772,18 +664734,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1880826259}
     m_Modifications:
-    - target: {fileID: 2667221455881369523, guid: 6651164486379284c97f19a66c3611e9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4925371
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667221455881369523, guid: 6651164486379284c97f19a66c3611e9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.4925373
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667221455881369523, guid: 6651164486379284c97f19a66c3611e9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.4925371
-      objectReference: {fileID: 0}
     - target: {fileID: 2667221455881369523, guid: 6651164486379284c97f19a66c3611e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.507473

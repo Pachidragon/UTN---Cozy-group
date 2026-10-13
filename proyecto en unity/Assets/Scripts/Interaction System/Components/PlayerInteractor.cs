@@ -6,7 +6,7 @@ public class PlayerInteractor : MonoBehaviour
 {
     [Header("Detección")]
     [SerializeField] private Transform interactPivot; // Punto desde donde se calcula la esfera.
-    [SerializeField] private float interactionRadius; // Tamaño de la esfera (más grande = menos preciso).
+    [SerializeField] private float interactionRadius; // Tamaño de la esfera.
     [SerializeField] private float forwardOffset; // Qué tan adelante del pivot se coloca la esfera.
     [SerializeField] private LayerMask interactableLayer; // Capa de los objetos interactuables.
 
@@ -15,9 +15,13 @@ public class PlayerInteractor : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject interactPrompt; // Cartel "E Interactuar".
+    [SerializeField] private Camera cam; // Cámara que ve al jugador.
+    [SerializeField] private Vector3 promptOffset = new Vector3(0f, 1f, 0f); // Qué tan arriba del objeto aparece el cartel.
+
+    private IInteractable currentInteractable;
+    private Transform currentTarget; // Transform del interactuable más cercano.
 
     private readonly Collider[] hits = new Collider[8]; // Buffer reutilizable para no generar basura cada frame.
-    private IInteractable currentInteractable;
 
     private void OnEnable()
     {
@@ -38,11 +42,27 @@ public class PlayerInteractor : MonoBehaviour
 
         SetPromptVisible(false);
     }
-
     private void Update()
     {
         currentInteractable = FindClosestInteractable();
-        SetPromptVisible(currentInteractable != null);
+
+        if (currentTarget == null)
+        {
+            SetPromptVisible(false);
+            return;
+        }
+
+        Vector3 screenPos = cam.WorldToScreenPoint(currentTarget.position + promptOffset);
+
+        // z < 0 significa que el objeto está detrás de la cámara y no se muestra el cartel.
+        if (screenPos.z < 0f)
+        {
+            SetPromptVisible(false);
+            return;
+        }
+
+        SetPromptVisible(true);
+        interactPrompt.transform.position = screenPos;
     }
 
     private void PlayerInteracted(InputAction.CallbackContext context)
@@ -59,6 +79,7 @@ public class PlayerInteractor : MonoBehaviour
         int count = Physics.OverlapSphereNonAlloc(GetSphereCenter(), interactionRadius, hits, interactableLayer);
 
         IInteractable closest = null;
+        Transform closestTransform = null;
         float closestDistance = float.MaxValue;
 
         for (int i = 0; i < count; i++)
@@ -71,9 +92,13 @@ public class PlayerInteractor : MonoBehaviour
             {
                 closestDistance = distance;
                 closest = interactable;
+                Transform root = (interactable as Component).transform;
+                Transform anchor = root.Find("PromptAnchor");
+                closestTransform = anchor != null ? anchor : root;
             }
         }
 
+        currentTarget = closestTransform;
         return closest;
     }
 
