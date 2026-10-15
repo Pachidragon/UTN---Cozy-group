@@ -34790,6 +34790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 11400000, guid: 2011e761c720f4540bb5967070950eb3, type: 2}
+  quantity: 1
+  destroyOnPickUp: 1
+  wrongItem: 0
 --- !u!1 &6169636851185352806
 GameObject:
   m_ObjectHideFlags: 0
