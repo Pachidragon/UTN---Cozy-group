@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 730581127407188423}
   - component: {fileID: 45467363614692030}
   - component: {fileID: -6151308143102891515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fruits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33989,7 +33989,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1201
+  m_VersionIndex: 1210
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -34106,8 +34106,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485199527601493945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 11400000, guid: 0c50428ff296c77449936ba9b2e4a396, type: 2}
+  quantity: 1
+  destroyOnPickUp: 1
+  wrongItem: 0

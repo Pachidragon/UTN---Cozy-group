@@ -197,6 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 11400000, guid: 6153a6caa9cc73847a2a159ba3686cda, type: 2}
+  quantity: 1
+  destroyOnPickUp: 1
   wrongItem: 1
 --- !u!65 &237982413627526618
 BoxCollider:

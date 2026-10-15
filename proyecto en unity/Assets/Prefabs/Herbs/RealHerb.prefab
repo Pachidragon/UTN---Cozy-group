@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.69, y: 1.6363807, z: 6.76}
-  m_LocalScale: {x: 0.49968216, y: 0.49968204, z: 0.49968204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7030345404094945207}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1129
+  m_VersionIndex: 1138
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -708,11 +708,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6827797592756452437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 11400000, guid: d79f8a1095882d645b4064bbaa5d84e7, type: 2}
+  quantity: 1
+  destroyOnPickUp: 1
   wrongItem: 0
 --- !u!1001 &7357321141571842140
 PrefabInstance:

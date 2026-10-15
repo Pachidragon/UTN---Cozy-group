@@ -11586,7 +11586,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1177
+  m_VersionIndex: 1183
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12268,7 +12268,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1558
+  m_VersionIndex: 1564
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12391,3 +12391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 11400000, guid: d1441ff773c5998448d15571de2459d2, type: 2}
+  quantity: 1
+  destroyOnPickUp: 1
+  wrongItem: 0

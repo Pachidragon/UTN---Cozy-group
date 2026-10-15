@@ -2,17 +2,40 @@ using UnityEngine;
 // Controla la interacción y recolección de objetos del escenario.
 public class Recolectable : MonoBehaviour, IInteractable
 {
-    [SerializeField] private bool wrongItem = false; // Indica si el objeto es un elemento incorrecto que provoca la derrota.
+    [Header("Item")]
+    [SerializeField] private ItemData itemData;
+    [SerializeField] private int quantity = 1;
+
+    [Header("Behaviour")]
+    [SerializeField] private bool destroyOnPickUp = true;
+    private bool pickedUp = false;
+    [SerializeField] private bool wrongItem = false; // Indica si el objeto es un elemento incorrecto.
+    
+    public ItemData ItemData => itemData;
+    public int Quantity => quantity;
+    public bool WrongItem => wrongItem;
 
 
     public void Interact()
     {
-        Debug.Log("Recolectado");
+        if (!TryPickUp()) return;
 
-        if (wrongItem && GameCode.Instance != null) // Comprueba si el objeto es incorrecto y existe una instancia de GameCode.
-        {
-            GameCode.Instance.LoseOn(); // Activa el estado de derrota.
-        }
-        Destroy(gameObject); // Elimina el objeto de la escena.
+        OnPickedUp();
+    }
+
+    private bool TryPickUp()
+    {
+        if (pickedUp || itemData == null) return false;
+
+        pickedUp = true;
+        return true;
+    }
+
+    private void OnPickedUp()
+    {
+        Debug.Log("Recogido" + itemData.itemName + "x " + quantity);
+
+        if (destroyOnPickUp)
+            Destroy(gameObject);
     }
 }
