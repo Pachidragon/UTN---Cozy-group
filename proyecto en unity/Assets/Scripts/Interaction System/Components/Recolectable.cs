@@ -33,7 +33,7 @@ public class Recolectable : MonoBehaviour, IInteractable
 
     private void OnPickedUp()
     {
-        bool added = InventoryManager.Instance.AddItem(itemData, quantity);
+        bool added = InventoryManager.Instance.AddItem(itemData, quantity, wrongItem);
 
         if (!added)
         {

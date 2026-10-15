@@ -20,28 +20,44 @@ public class InventoryManager : MonoBehaviour
         slots = new InventorySlot[inventorySize];
     }
 
-    public bool AddItem(ItemData itemData, int quantity)
+    public bool AddItem(ItemData itemData, int quantity, bool wrong = false)
     {
-        for(int i = 0; i < slots.Length; i++)
-        {
-            if (slots[i]!= null && slots[i].itemData == itemData)
-            {
-                slots[i].quantity += quantity;
-                OnInventoryChanged?.Invoke();
-                return true;
-            }
-        }
+        int max = Mathf.Max(1, itemData.maxStackSize);
 
+        // Verifica que entre todo antes de modificar nada.
+        int capacity = 0;
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i] == null)
-            {
-                slots[i] = new InventorySlot(itemData, quantity);
-                OnInventoryChanged?.Invoke();
-                return true;
-            }
+            if (slots[i] == null) capacity += max;
+            else if (slots[i].itemData == itemData) capacity += max - slots[i].quantity;
+        }
+        if (capacity < quantity) return false;
+
+        int remaining = quantity;
+
+        // Completa los slots que ya tienen este item.
+        for (int i = 0; i < slots.Length && remaining > 0; i++)
+        {
+            if (slots[i] == null || slots[i].itemData != itemData) continue;
+
+            int toAdd = Mathf.Min(max - slots[i].quantity, remaining);
+            slots[i].quantity += toAdd;
+            if (wrong) slots[i].wrongQuantity += toAdd;
+            remaining -= toAdd;
         }
 
-        return false;
+        // El resto va a slots vacíos.
+        for (int i = 0; i < slots.Length && remaining > 0; i++)
+        {
+            if (slots[i] != null) continue;
+
+            int toAdd = Mathf.Min(max, remaining);
+            slots[i] = new InventorySlot(itemData, toAdd);
+            if (wrong) slots[i].wrongQuantity = toAdd;
+            remaining -= toAdd;
+        }
+
+        OnInventoryChanged?.Invoke();
+        return true;
     }
 }
