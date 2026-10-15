@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: Item_Potion
   icon: {fileID: 0}
   description: Brevaje especial...
-  maxStackSize: 1
+  maxStackSize: 3

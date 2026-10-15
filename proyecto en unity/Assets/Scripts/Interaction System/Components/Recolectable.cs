@@ -33,7 +33,15 @@ public class Recolectable : MonoBehaviour, IInteractable
 
     private void OnPickedUp()
     {
-        Debug.Log("Recogido" + itemData.itemName + "x " + quantity);
+        bool added = InventoryManager.Instance.AddItem(itemData, quantity);
+
+        if (!added)
+        {
+            pickedUp = false; // Inventario lleno, se puede reintentar.
+            return;
+        }
+
+        Debug.Log($"Recogido:{itemData.itemName} x{quantity}");
 
         if (destroyOnPickUp)
             Destroy(gameObject);
