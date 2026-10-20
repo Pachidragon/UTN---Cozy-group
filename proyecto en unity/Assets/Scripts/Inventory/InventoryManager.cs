@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance {  get; private set; }
     [SerializeField] private int inventorySize = 10;
     private InventorySlot[] slots;
+    public InventorySlot[] Slots => slots; // Acceso de solo lectura para la UI y el crafteo.
 
     public Action OnInventoryChanged;
 
@@ -59,5 +60,34 @@ public class InventoryManager : MonoBehaviour
 
         OnInventoryChanged?.Invoke();
         return true;
+    }
+
+    // Quita las unidades incorrectas de un slot y devuelve cuántas quitó.
+    public int RemoveWrongFromSlot(int index)
+    {
+        InventorySlot slot = slots[index];
+        if (slot == null) return 0;
+
+        int removed = slot.wrongQuantity;
+        if (removed <= 0) return 0;
+
+        slot.quantity -= removed;
+        slot.wrongQuantity = 0;
+        if (slot.quantity <= 0) slots[index] = null; // Slot vacío se libera.
+
+        OnInventoryChanged?.Invoke();
+        return removed;
+    }
+
+    // Quita una cantidad de un slot (consumo al craftear).
+    public void RemoveFromSlot(int index, int amount)
+    {
+        InventorySlot slot = slots[index];
+        if (slot == null || amount <= 0) return;
+
+        slot.quantity -= amount;
+        if (slot.quantity <= 0) slots[index] = null;
+
+        OnInventoryChanged?.Invoke();
     }
 }
