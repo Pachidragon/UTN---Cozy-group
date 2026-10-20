@@ -21,10 +21,10 @@ public class SlotView : MonoBehaviour
     {
         if (icon != null)
         {
-            icon.sprite = data.icon; // Ajustá el nombre si tu campo no se llama 'icon'.
+            icon.sprite = data.icon;
             icon.enabled = data.icon != null;
         }
-        if (label != null) label.text = data.itemName + " x" + quantity;
+        if (label != null) label.text = quantity > 1 ? quantity.ToString() : "";
 
         Button.interactable = interactable;
     }
