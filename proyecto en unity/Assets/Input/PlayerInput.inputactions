@@ -213,6 +213,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Camara",
+            "id": "56eebe37-689a-451e-979c-faf60cd06610",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "c9efd86b-4f3d-4dd8-a385-f38f5e3bf660",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "81feb9ec-1109-4116-9baf-3327c25ace02",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0be1ca78-d320-43b5-bb26-f247e34c73e9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

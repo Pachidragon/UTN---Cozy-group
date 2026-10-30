@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    
+
     [Header("Movement")]
     private Vector2 input;
     private CharacterController characterController;
@@ -32,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake() // Obtiene las referencias necesarias al iniciar el jugador.
     {
+       Cursor.lockState = CursorLockMode.Locked;
+       Cursor.visible = false;
+
+      
+
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
 
