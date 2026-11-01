@@ -24627,7 +24627,7 @@ GameObject:
   - component: {fileID: 307510682}
   - component: {fileID: 307510681}
   m_Layer: 0
-  m_Name: zona funghi sky (1)
+  m_Name: hubsky (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24641,13 +24641,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307510679}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.3754469, z: -0, w: 0.92684394}
-  m_LocalPosition: {x: 136.2, y: 19.309502, z: -0.4}
-  m_LocalScale: {x: 99.82866, y: 93.26961, z: 104.79766}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.8787994, y: 18.599403, z: -29.325495}
+  m_LocalScale: {x: 99.82866, y: 93.26961, z: 104.79767}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1299177317}
-  m_Father: {fileID: 1600402633}
+  m_Father: {fileID: 1775271767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &307510681
 SphereCollider:
@@ -287031,7 +287031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &485297037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758547,7 +758547,6 @@ Transform:
   - {fileID: 1687006893}
   - {fileID: 985068865}
   - {fileID: 1175237102}
-  - {fileID: 307510680}
   m_Father: {fileID: 498181388}
   m_LocalEulerAnglesHint: {x: 0, y: 44.104, z: 0}
 --- !u!4 &1601561016 stripped
@@ -770951,6 +770950,7 @@ Transform:
   - {fileID: 814509421}
   - {fileID: 1239730835}
   - {fileID: 1262785874}
+  - {fileID: 307510680}
   m_Father: {fileID: 246958145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1777115274
