@@ -11,9 +11,8 @@ public class NPCTutor : NPCBase
 
     [Header("Identidad Visual UI")]
     [SerializeField] private Sprite avatarNPC;
-
     public enum tutorial { Introduction, Potion, TutorialDone }
-    private tutorial currentState = tutorial.Introduction;
+    public tutorial currentState = tutorial.Introduction;
 
     private bool showingRecipe = false;
 
@@ -88,6 +87,11 @@ public class NPCTutor : NPCBase
             }
 
             currentState = tutorial.TutorialDone;
+            if (QuestTrackerUI.Instance != null)
+            {
+                QuestTrackerUI.Instance.UpdateQuestPanel();
+            }
+
             Invoke(nameof(RegresarAIdle), 4f);
         }
     }

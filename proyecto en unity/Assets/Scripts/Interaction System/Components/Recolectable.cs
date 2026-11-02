@@ -38,6 +38,15 @@ public class Recolectable : MonoBehaviour, IInteractable
 
     private void OnPickedUp()
     {
+        if (itemData != null && (itemData.itemID == "Pocion" || itemData.itemID == "Item_Potion"))
+        {
+            if (QuestTrackerUI.Instance != null)
+            {
+                QuestTrackerUI.Instance.MarcarPocionBebida();
+                Debug.Log("[Misiones]: Señal de poción enviada con éxito desde Recolectable.");
+            }
+        }
+
         bool added = InventoryManager.Instance.AddItem(itemData, quantity, wrongItem);
 
         if (!added)

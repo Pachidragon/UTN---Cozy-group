@@ -25,6 +25,8 @@ public class NPCHorse : NPCBase
         Dialogues.Instance.ShowDialogue(nameNPC, verdadCaballo, avatarHorse, this);
 
         FarmQuestManager.Instance.talkToHorse = true; // Activa el pase para el gallo
+        if (QuestTrackerUI.Instance != null) QuestTrackerUI.Instance.UpdateQuestPanel();
+
     }
 }
 

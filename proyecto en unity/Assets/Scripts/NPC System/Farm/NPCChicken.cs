@@ -84,7 +84,6 @@ public class NPCChicken : NPCBase
 
         temporizadorRuta = tiempoEntrePasos;
     }
-
     public override void Talk()
     {
         if (Dialogues.Instance == null || FarmQuestManager.Instance == null) return;
@@ -103,6 +102,13 @@ public class NPCChicken : NPCBase
 
         string textoAMostrar = (dialogues != null && dialogues.Length > 0) ? dialogues[0] : "¡Cocorocó! La hierba la tiene el caballo en el establo.";
         Dialogues.Instance.ShowDialogue(nameNPC, textoAMostrar, avatarChicken, this);
+        if (!alreadyTalked)
+        {
+            alreadyTalked = true;
+            FarmQuestManager.Instance.chickensInterrogated++;
+
+            if (QuestTrackerUI.Instance != null) QuestTrackerUI.Instance.UpdateQuestPanel();
+        }
     }
 }
 

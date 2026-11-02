@@ -51,18 +51,17 @@ public class Cauldron : MonoBehaviour, IInteractable
         if (crafted) return;
         crafted = true; // Evita crear otra poción.
 
-        Debug.Log("[Caldero]: Instanciando poción");
+        Debug.Log("[Caldero]: Crafteo exitoso detectado.");
 
-        if (prefabPotion != null && pivotSpawn != null)
+        if (QuestTrackerUI.Instance != null)
         {
-            Instantiate(prefabPotion, pivotSpawn.position, pivotSpawn.rotation);
-            Debug.Log("Objeto instanciado bien");
+            QuestTrackerUI.Instance.MarcarPocionBebida();
         }
 
-        // Si este caldero tiene a Moria asignada en el Inspector, le avisará en este preciso instante.
         if (OnPotionCraftedSuccessfully != null)
         {
             OnPotionCraftedSuccessfully.Invoke();
         }
     }
+
 }

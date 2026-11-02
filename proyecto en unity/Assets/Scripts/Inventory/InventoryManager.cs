@@ -59,6 +59,10 @@ public class InventoryManager : MonoBehaviour
         }
 
         OnInventoryChanged?.Invoke();
+        if (QuestTrackerUI.Instance != null)
+        {
+            QuestTrackerUI.Instance.UpdateQuestPanel();
+        }
         return true;
     }
 

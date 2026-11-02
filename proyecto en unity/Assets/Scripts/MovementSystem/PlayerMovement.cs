@@ -143,13 +143,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Drink(InputAction.CallbackContext context) // Activa la animación de tomar una poción
+    public void Drink(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        if (!IsGrounded()) return; // Evita tomar pociones en el aire
+        if (!IsGrounded()) return;
+        if (isInteracting) return;
 
-        if (animator != null) animator.SetTrigger("Drinking");
-        Debug.Log("Clementina toma una poción");
+        PlayInteractionAnimation(AnimationContext.Drink);
     }
 
     public void GrabDown(InputAction.CallbackContext context) // Activa la animación de recoger del suelo
