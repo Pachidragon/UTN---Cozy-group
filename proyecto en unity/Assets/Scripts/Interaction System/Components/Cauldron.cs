@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Caldero interactuable. Al interactuar abre el panel de crafteo con su propia receta.
 public class Cauldron : MonoBehaviour, IInteractable
@@ -19,7 +20,10 @@ public class Cauldron : MonoBehaviour, IInteractable
     [SerializeField] private GameObject prefabPotion; // Prefab de la poción que se va a crear.
     [SerializeField] private Transform pivotSpawn;    // Punto donde aparecerá la poción.
 
-    private bool crafted = false; // Indica si el caldero ya creó la poción.
+    [Header("Eventos del Tutorial")]
+    public UnityEvent OnPotionCraftedSuccessfully;
+
+    private bool crafted = false;
 
     public List<Ingredient> Recipe => recipe;
 
@@ -53,6 +57,12 @@ public class Cauldron : MonoBehaviour, IInteractable
         {
             Instantiate(prefabPotion, pivotSpawn.position, pivotSpawn.rotation);
             Debug.Log("Objeto instanciado bien");
+        }
+
+        // Si este caldero tiene a Moria asignada en el Inspector, le avisará en este preciso instante.
+        if (OnPotionCraftedSuccessfully != null)
+        {
+            OnPotionCraftedSuccessfully.Invoke();
         }
     }
 }

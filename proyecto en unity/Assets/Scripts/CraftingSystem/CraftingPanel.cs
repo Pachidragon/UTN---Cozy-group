@@ -25,6 +25,7 @@ public class CraftingPanel : MonoBehaviour
     [Header("Eventos")]
     [SerializeField] private UnityEvent onOpened; // Desactivar el movimiento y liberar el cursor.
     [SerializeField] private UnityEvent onClosed; // Reactivar el movimiento.
+    public UnityEvent onCraftSuccess;
 
     private readonly List<SlotView> inventoryViews = new List<SlotView>();
     private readonly List<int> placed = new List<int>(); // Índices de slots del inventario puestos en el círculo.
@@ -159,6 +160,7 @@ public class CraftingPanel : MonoBehaviour
                 success = true;
                 placed.Clear();
                 if (resultIcon != null) resultIcon.SetActive(true);
+                onCraftSuccess?.Invoke();
                 SetMessage("¡Poción creada! Cerrá el panel para recogerla.");
                 Refresh();
                 break;

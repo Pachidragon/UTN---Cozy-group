@@ -1,3 +1,4 @@
+using UnityEngine.Events;
 using UnityEngine;
 // Comportamiento del caldero.
 // Hereda de NPCBase para poder utilizar el sistema de interacción/Talk().
@@ -6,6 +7,9 @@ public class cauldron : NPCBase
 
     [SerializeField] private GameObject prefabPotion;  // Prefab de la poción que se va a crear.
     [SerializeField] private Transform pivotSpawn;  // Punto de referencia donde aparecerá la poción.
+    
+    [Header("Eventos del Caldero")]
+    public UnityEvent OnPotionCraftedSuccessfully;
 
     private bool Crafted = false; // Indica si el caldero ya creó la poción.
     public override void Talk() // Se ejecuta cuando el jugador interactúa con el caldero.
