@@ -1,5 +1,6 @@
 using UnityEngine;
 // Controla la interacción y recolección de objetos del escenario.
+public enum AnimationContext { GrabDown, GrabMid, Drink }
 public class Recolectable : MonoBehaviour, IInteractable
 {
     [Header("Item")]
@@ -11,6 +12,10 @@ public class Recolectable : MonoBehaviour, IInteractable
     private bool pickedUp = false;
     [SerializeField] private bool wrongItem = false; // Indica si el objeto es un elemento incorrecto.
     
+    [Header("Contexto de Animación")]
+    [SerializeField] private AnimationContext animationContext = AnimationContext.GrabDown;
+    public AnimationContext CurrentContext => animationContext;
+
     public ItemData ItemData => itemData;
     public int Quantity => quantity;
     public bool WrongItem => wrongItem;

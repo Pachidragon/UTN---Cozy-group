@@ -34794,6 +34794,7 @@ MonoBehaviour:
   quantity: 1
   destroyOnPickUp: 1
   wrongItem: 0
+  animationContext: 2
 --- !u!1 &6169636851185352806
 GameObject:
   m_ObjectHideFlags: 0

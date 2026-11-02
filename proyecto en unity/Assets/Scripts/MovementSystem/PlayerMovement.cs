@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animations")]
     private Animator animator; // Guarda la referencia a las animaciones de la brujita
     private bool isCrouching = false; // Controla si está agachada o no
+    private bool isInteracting = false;
 
     private void Awake() // Obtiene las referencias necesarias al iniciar el jugador.
     {
@@ -85,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement() // Mueve al jugador utilizando el CharacterController.
     {
+        if (isInteracting) return;
+
         // Si está agachada, reduce la velocidad a la mitad para que no corra agachada
         float currentSpeed = isCrouching ? (speed * 0.5f) : speed;
 
@@ -108,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
     {
         input = context.ReadValue<Vector2>();
         Debug.Log("Player se mueve :)");
+        if (isInteracting) return; // Ignora el cambio de teclas si está interactuando
+        input = context.ReadValue<Vector2>();
     }
 
     public void Jump(InputAction.CallbackContext context) // Ejecuta el salto cuando el jugador presiona el botón correspondiente.
@@ -117,6 +122,9 @@ public class PlayerMovement : MonoBehaviour
         if (isCrouching) return; // Evita saltar mientras se está agachada
 
         velocity += jumpForce;
+
+        if (isInteracting) return; // Evita saltar en plena animación
+        if (!context.started) return;
     }
 
     public void Crouch(InputAction.CallbackContext context) // Maneja la acción de agacharse
@@ -163,4 +171,41 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private bool IsGrounded() => characterController.isGrounded; // Comprueba si el jugador está en contacto con el suelo.
+
+    public void PlayInteractionAnimation(AnimationContext context)
+    {
+        if (animator == null || !IsGrounded() || isInteracting) return;
+
+        isInteracting = true;
+        input = Vector2.zero;
+
+        float tiempoDeBloqueo = 1f; // Tiempo por defecto en segundos
+
+        switch (context)
+        {
+            case AnimationContext.GrabDown:
+                animator.SetTrigger("GrabDown");
+                tiempoDeBloqueo = 0.8f; 
+                break;
+
+            case AnimationContext.GrabMid:
+                animator.SetTrigger("GrabMid");
+                tiempoDeBloqueo = 0.8f;
+                break;
+
+            case AnimationContext.Drink:
+                animator.SetTrigger("Drinking");
+                tiempoDeBloqueo = 1.5f;
+                break;
+        }
+
+        // Llama a la función para liberar al personaje después de que termine la animación
+        Invoke(nameof(ResetInteractionBlock), tiempoDeBloqueo);
+    }
+
+    private void ResetInteractionBlock()
+    {
+        isInteracting = false;
+        Debug.Log("[Sistema]: Clementina puede moverse de nuevo.");
+    }
 }

@@ -64,11 +64,30 @@ public class PlayerInteractor : MonoBehaviour
         SetPromptVisible(true);
         interactPrompt.transform.position = screenPos;
     }
-
     private void PlayerInteracted(InputAction.CallbackContext context)
     {
         if (currentInteractable != null)
         {
+            // Buscamos si el objeto que estamos tocando tiene el script Recolectable
+            // Usamos GetComponent o lo buscamos en el componente de forma directa
+            Component interactableComponent = currentInteractable as Component;
+            if (interactableComponent != null)
+            {
+                Recolectable recolectableObj = interactableComponent.GetComponent<Recolectable>();
+
+                if (recolectableObj != null)
+                {
+                    // Buscamos el script de movimiento en nuestro Player para ordenarle animarse
+                    PlayerMovement movement = GetComponent<PlayerMovement>();
+                    if (movement != null)
+                    {
+                        // Le pasamos el tipo de animación que el objeto tiene guardado
+                        movement.PlayInteractionAnimation(recolectableObj.CurrentContext);
+                    }
+                }
+            }
+
+            // Ejecuta la recolección lógica nativa de siempre (guardar en inventario/destruir)
             currentInteractable.Interact();
         }
     }

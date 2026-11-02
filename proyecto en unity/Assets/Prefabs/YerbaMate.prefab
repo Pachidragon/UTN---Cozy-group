@@ -374,6 +374,7 @@ MonoBehaviour:
   quantity: 1
   destroyOnPickUp: 1
   wrongItem: 0
+  animationContext: 1
 --- !u!1001 &1376427968527236763
 PrefabInstance:
   m_ObjectHideFlags: 0
