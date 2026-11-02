@@ -90,4 +90,36 @@ public class InventoryManager : MonoBehaviour
 
         OnInventoryChanged?.Invoke();
     }
+
+    // Busca si el item existe en alguno de los slots del inventario
+    public bool HasItem(ItemData itemDataBuscar)
+    {
+        if (slots == null) return false;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            // Si el slot no está vacío y el ScriptableObject coincide, ¡lo encontramos!
+            if (slots[i] != null && slots[i].itemData == itemDataBuscar && slots[i].quantity > 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Consume el ítem del inventario al usarlo en el mate
+    public void RemoveItem(ItemData itemDataConsumir, int amount)
+    {
+        if (slots == null) return;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && slots[i].itemData == itemDataConsumir)
+            {
+                RemoveFromSlot(i, amount);
+                return; // Ya lo consumió, salimos
+            }
+        }
+    }
+
 }
