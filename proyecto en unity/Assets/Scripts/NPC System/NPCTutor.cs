@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Controla el tutorial de pociones del NPC Tutor, la apertura de la puerta y la consulta posterior de ingredientes.
 public class NPCTutor : NPCBase
 {
     public static NPCTutor Instance { get; private set; }
@@ -10,12 +9,14 @@ public class NPCTutor : NPCBase
     [SerializeField] private float distanceToTalk = 4f;
 
     [Header("Referencias del Juego")]
-    [SerializeField] private GameObject doorPlace; // Arrastra aquí la puerta que se abrirá
-    [SerializeField] private Animator npcAnimator;       // Arrastra aquí el Animator del Tutor
+    [SerializeField] private GameObject doorPlace;
+    [SerializeField] private Animator npcAnimator;
+
+    [Header("Identidad Visual UI")]
+    [SerializeField] private Sprite avatarNPC;
 
     private Transform playerTransform;
 
-    // Estados del Tutorial
     public enum tutorial { Introduction, Potion, TutorialDone }
     private tutorial currentState = tutorial.Introduction;
 
@@ -65,6 +66,11 @@ public class NPCTutor : NPCBase
         }
         else
         {
+            // Si el jugador se aleja, cerramos el cuadro visual de diálogo
+            if (showingRecipe || Dialogues.Instance.IsDialogueActive)
+            {
+                Dialogues.Instance.CloseDialogue();
+            }
             showingRecipe = false;
         }
     }
@@ -76,44 +82,36 @@ public class NPCTutor : NPCBase
         switch (currentState)
         {
             case tutorial.Introduction:
-                Debug.Log($"[{nameNPC}]: ¡Hola, querida! Hoy te enseñaré el arte de la alquimia básica.");
-                Debug.Log($"[{nameNPC}]: Prepara tu primera poción usando el caldero para demostrarme lo que vales.");
-
+                Dialogues.Instance.ShowDialogue(nameNPC, "¡Hola, querida! Hoy te enseñaré el arte de la alquimia básica. Prepara tu primera poción usando el caldero para demostrarme lo que vales.", avatarNPC);
                 currentState = tutorial.Potion;
-                Invoke(nameof(RegresarAIdle), 2f);
+                Invoke(nameof(RegresarAIdle), 3f);
                 break;
 
             case tutorial.Potion:
-                Debug.Log($"[{nameNPC}]: ¿Qué esperas, mi amor? Ve al caldero y prepara la poción para poder continuar.");
+                Dialogues.Instance.ShowDialogue(nameNPC, "¿Qué esperas, mi amor? Ve al caldero y prepara la poción para poder continuar.", avatarNPC);
                 Invoke(nameof(RegresarAIdle), 2f);
                 break;
 
             case tutorial.TutorialDone:
-                Debug.Log($"[{nameNPC}]: ¿Necesitas ayuda con los ingredientes de la receta? Dime cuál buscas:");
-                Debug.Log("[Presiona 1] El Bosque (Manzanas)");
-                Debug.Log("[Presiona 2] La Zona de Hongos");
-                Debug.Log("[Presiona 3] La Cueva (Cristales)");
-                Debug.Log("[Presiona 4] La Granja (Secretos)");
-
+                Dialogues.Instance.ShowDialogue(nameNPC, "¿Necesitas ayuda con los ingredientes de la receta? Dime cuál buscas:\n[1] Bosque  [2] Hongos  [3] Cueva  [4] Granja", avatarNPC);
                 showingRecipe = true;
                 break;
         }
     }
 
-    // ESTA FUNCIÓN SE EJECUTARÁ AUTOMÁTICAMENTE CUANDO EL JUGADOR LOGRE EL CRAFTEO EXITOSO
     public void PotionCrafted()
     {
         if (currentState == tutorial.Potion)
         {
-            Debug.Log($"[{nameNPC}]: ¡Excelente trabajo! La poción es perfecta. He desbloqueado la puerta hacia las zonas exteriores para que puedas continuar mi amor.");
+            Dialogues.Instance.ShowDialogue(nameNPC, "¡Excelente trabajo! La poción es perfecta. He desbloqueado la puerta hacia las zonas exteriores para que puedas continuar mi amor.", avatarNPC);
 
             if (doorPlace != null)
             {
-                doorPlace.SetActive(false); // Abre la puerta deshabilitando su objeto
-                Debug.Log("[Sistema]: La puerta de la sala se ha abierto.");
+                doorPlace.SetActive(false);
             }
 
             currentState = tutorial.TutorialDone;
+            Invoke(nameof(RegresarAIdle), 4f);
         }
     }
 
@@ -124,16 +122,16 @@ public class NPCTutor : NPCBase
         switch (ingrediente)
         {
             case 1:
-                Debug.Log($"[{nameNPC}]: El Bosque está lleno de frutas, pero llegar hasta ellas es un gran desafío.");
+                Dialogues.Instance.ShowDialogue(nameNPC, "El Bosque está lleno de frutas, pero llegar hasta ellas es un gran desafío.", avatarNPC);
                 break;
             case 2:
-                Debug.Log($"[{nameNPC}]: La Zona de Hongos es húmeda y mágica. Recuerda explorar con cautela.");
+                Dialogues.Instance.ShowDialogue(nameNPC, "La Zona de Hongos es húmeda y mágica. Recuerda explorar con cautela.", avatarNPC);
                 break;
             case 3:
-                Debug.Log($"[{nameNPC}]: La Cueva es oscura y misteriosa. Asegúrate de caminar con cuidado o podrías perderte.");
+                Dialogues.Instance.ShowDialogue(nameNPC, "La Cueva es oscura y misteriosa. Asegúrate de caminar con cuidado o podrías perderte.", avatarNPC);
                 break;
             case 4:
-                Debug.Log($"[{nameNPC}]: En la Granja vive una granjera. Ten cuidado, sus animales ocultan secretos.");
+                Dialogues.Instance.ShowDialogue(nameNPC, "En la Granja vive una granjera. Ten cuidado, sus animales ocultan secretos.", avatarNPC);
                 break;
         }
 
