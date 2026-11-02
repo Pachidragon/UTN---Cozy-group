@@ -1,50 +1,20 @@
 using UnityEngine;
-// Controla la interacción con la granjera y modifica su diálogo según el progreso de la misión.
 
 public class NPCFarmer : NPCBase
 {
-    [SerializeField] private string[] dialoguesAfterHorse;
-    [SerializeField] private float distanciaParaHablar = 3f;
-    private Transform playerTransform;
+    [SerializeField] private Sprite avatarFarmer;
 
-    void Start()
+    public override void Talk()
     {
-        GameObject playerObj = GameObject.Find("Player");
-        if (playerObj != null)
+        if (Dialogues.Instance == null || FarmQuestManager.Instance == null) return;
+
+        if (FarmQuestManager.Instance.questCompleted)
         {
-            playerTransform = playerObj.transform;
+            Dialogues.Instance.ShowDialogue(nameNPC, "¡Oh, veo que ya tienes la hierba mágica! Me alegra muchísimo que la encontraras, jovencita.", avatarFarmer, this);
+            return;
         }
-    }
+        Dialogues.Instance.ShowDialogue(nameNPC, "Esa hierba... ¿Dónde la había dejado? ¿La tenían las gallinas? Ay, mi cabeza no da para más hoy, ve a revisar qué te dicen.", avatarFarmer, this);
 
-    void Update()
-    {
-        if (playerTransform == null) return;
-
-        float distancia = Vector3.Distance(transform.position, playerTransform.position);
-
-        if (distancia <= distanciaParaHablar)
-        {
-            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Interact();
-            }
-        }
-    }
-
-    public override void Talk() // Muestra un diálogo diferente según si el jugador ya habló con el caballo.
-    {
-        if (FarmQuestManager.Instance != null && FarmQuestManager.Instance.talkToHorse)
-        {
-            Debug.Log("[" + nameNPC + "]: Estuve intentando recordar, pero aun no estoy segura. Pensaba que se la había dado a las gallinas, ¿Quizá me confundí...?");
-        }
-        else
-        {
-            base.Talk(); // Ejecuta el diálogo configurado en NPC
-
-            if (FarmQuestManager.Instance != null)
-            {
-                FarmQuestManager.Instance.talkToFarmer = true;
-            }
-        }
+        FarmQuestManager.Instance.talkToFarmer = true;
     }
 }

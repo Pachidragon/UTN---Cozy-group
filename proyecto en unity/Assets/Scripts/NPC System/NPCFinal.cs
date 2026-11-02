@@ -1,38 +1,21 @@
 using UnityEngine;
-// Controla la interacción con el NPC que desencadena la victoria del juego (Mirtha)
 
 public class NPCVictoria : NPCBase
 {
     [SerializeField] private GameObject prefabItemFinal;
     [SerializeField] private Transform pivotSpawnItemFinal;
-    [SerializeField] private float distanceToTalk = 4f;
-    private Transform playerTransform;
+    [SerializeField] private Sprite avatarMirtha; 
+
     private bool win = false; // Indica si la victoria ya fue otorgada.
 
-    void Start()
-    {
-        GameObject playerObj = GameObject.Find("Player");
-        if (playerObj != null) playerTransform = playerObj.transform;
-    }
-    void Update()
-    {
-        if (playerTransform == null || win) return;
-
-        float distancia = Vector3.Distance(transform.position, playerTransform.position);
-
-        if (distancia <= distanceToTalk)
-        {
-            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Interact();
-            }
-        }
-    }
     public override void Talk() // Ejecuta el diálogo del NPC 
     {
-        if (win) return;
+        if (win || Dialogues.Instance == null) return; //
 
-        base.Talk();
+        // Lee el Element 0 que le configures en el Inspector a Mirtha.
+        string textoDialogo = (dialogues != null && dialogues.Length > 0) ? dialogues[0] : "¡Felicidades, has completado tu entrenamiento!";
+        Dialogues.Instance.ShowDialogue(nameNPC, textoDialogo, avatarMirtha, this);
+
         VictoryDone();
     }
 

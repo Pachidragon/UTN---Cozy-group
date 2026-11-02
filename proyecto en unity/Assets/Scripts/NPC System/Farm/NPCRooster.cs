@@ -1,51 +1,36 @@
 using UnityEngine;
-// Controla la interacción con el gallo y la aparición de la hierba necesaria para la misión.
 
 public class NPCRooster : NPCBase
 {
     [SerializeField] private GameObject itemTrueHerb;
-    [SerializeField] private float distanciaParaHablar = 3f;
-    private Transform playerTransform;
+    [SerializeField] private Sprite avatarRooster;
 
-    void Start()
+    protected override void Start()
     {
-        GameObject playerObj = GameObject.Find("Player");
-        if (playerObj != null) playerTransform = playerObj.transform;
-
+        base.Start();
         if (itemTrueHerb != null) itemTrueHerb.SetActive(false);
     }
 
-    void Update()
+    public override void Talk()
     {
-        if (playerTransform == null) return;
-        float distancia = Vector3.Distance(transform.position, playerTransform.position);
+        if (Dialogues.Instance == null || FarmQuestManager.Instance == null) return;
 
-        if (distancia <= distanciaParaHablar)
+        if (!FarmQuestManager.Instance.talkToHorse)
         {
-            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Interact();
-            }
-        }
-    }
-
-    public override void Talk() // Muestra el diálogo del gallo y, si se cumple la condición, hace aparecer la hierba.
-    {
-        
-        if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToHorse)
-        {
-            Debug.Log("[" + nameNPC + "]: ¡Qué bonita vista hay desde aquí arriba! ¡Ki-Kiri-Kí!");
+            string fraseTecho = (dialogues != null && dialogues.Length > 0) ? dialogues[0] : "¡Qué bonita vista hay desde aquí arriba! ¡Ki-Kiri-Kí!";
+            Dialogues.Instance.ShowDialogue(nameNPC, fraseTecho, avatarRooster, this);
             return;
         }
 
-        base.Talk();
+        string confesion = (dialogues != null && dialogues.Length > 1) ? dialogues[1] : "¡Está bien, me descubriste! ¡Ki-kiri-kí! Yo me había llevado la hierba mágica al techo, aquí la tienes.";
+        Dialogues.Instance.ShowDialogue(nameNPC, confesion, avatarRooster, this);
 
+        // Hace aparecer el objeto físico en el juego para que el jugador lo agarre
         if (itemTrueHerb != null)
         {
-            itemTrueHerb.SetActive(true); // Hace aparecer la hierba en el techo.
-            Debug.Log("¡La hierba ha aparecido en el techo!");
-            this.enabled = false; // Desactiva este script para evitar repetir la interacción.
-            }
+            itemTrueHerb.SetActive(true);
+            Debug.Log("[Sistema]: La hierba ha aparecido en el techo.");
+        }
+
     }
 }
-

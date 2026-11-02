@@ -1,25 +1,48 @@
 using UnityEngine;
-// Define el comportamiento base de los NPC que pueden interactuar con el jugador.
+using UnityEngine.InputSystem;
 
 public abstract class NPCBase : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected string nameNPC; // Nombre del NPC que se muestra en los diálogos.
-    [SerializeField] protected string[] dialogues; // Lista de diálogos configurables desde el Inspector.
+    [Header("Configuración Base NPC")]
+    [SerializeField] protected string nameNPC; // Nombre del NPC
+    [SerializeField] protected string[] dialogues; // Diálogos del Inspector
+    [SerializeField] protected float distanciaParaHablar = 3f; // Distancia general
 
-    public virtual void Interact() // Ejecuta la interacción del NPC con el jugador.
+    protected Transform playerTransform;
+
+    protected virtual void Start()
+    {
+        // Todos los NPCs buscan al jugador automáticamente al nacer
+        GameObject playerObj = GameObject.Find("Player");
+        if (playerObj != null) playerTransform = playerObj.transform;
+    }
+
+    protected virtual void Update()
+    {
+        if (playerTransform == null) return;
+
+        float distancia = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distancia <= distanciaParaHablar)
+        {
+            if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                Interact();
+            }
+        }
+        else
+        {
+            if (Dialogues.Instance != null && Dialogues.Instance.IsDialogueActive && Dialogues.Instance.CurrentTalkingNPC == this)
+            {
+                Dialogues.Instance.CloseDialogue();
+            }
+        }
+    }
+
+    public virtual void Interact()
     {
         Talk();
     }
 
-    public virtual void Talk() // Muestra el primer diálogo configurado del NPC.
-    {
-        if (dialogues != null && dialogues.Length > 0)
-        {
-            Debug.Log("[" + nameNPC + "]: " + dialogues[0]);
-        }
-        else
-        {
-            Debug.Log("[" + nameNPC + "]: No tengo diálogos configurados en el Inspector.");
-        }
-    }
+    public abstract void Talk();
 }

@@ -1,43 +1,31 @@
 using UnityEngine;
-// Controla la interacción con el caballo y actualiza el progreso de la misión.
+
 public class NPCHorse : NPCBase
 {
-    [SerializeField] private float distanciaParaHablar = 3f;
-    private Transform playerTransform;
+    [SerializeField] private Sprite avatarHorse;
 
-    void Start()
+    public override void Talk()
     {
-        GameObject playerObj = GameObject.Find("Player");
-        if (playerObj != null) playerTransform = playerObj.transform;
-    }
+        if (Dialogues.Instance == null || FarmQuestManager.Instance == null) return;
 
-    void Update() // Comprueba la distancia al jugador y permite iniciar la interacción.
-    {
-        if (playerTransform == null) return;
-        float distancia = Vector3.Distance(transform.position, playerTransform.position);
-
-        if (distancia <= distanciaParaHablar)
+        if (FarmQuestManager.Instance.questCompleted)
         {
-            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Interact();
-            }
-        }
-    }
-
-    public override void Talk() // Muestra el diálogo del caballo y actualiza el progreso de la misión.
-    {
-        if (FarmQuestManager.Instance != null && !FarmQuestManager.Instance.talkToFarmer)
-        {
-            Debug.Log("[" + nameNPC + "]: *Bufido* La granjera te busca, joven aprendiz.");
+            Dialogues.Instance.CloseDialogue();
             return;
         }
 
-        base.Talk(); // Ejecuta el diálogo configurado en NPC
-        if (FarmQuestManager.Instance != null)
+        if (!FarmQuestManager.Instance.talkToFarmer)
         {
-            FarmQuestManager.Instance.talkToHorse = true; // Registra que el jugador habló con el caballo.
+            Dialogues.Instance.ShowDialogue(nameNPC, "*Bufido* La granjera te busca, joven aprendiz.", avatarHorse, this);
+            return;
         }
+
+        // Muestra el secreto del corral de forma obligatoria
+        string verdadCaballo = (dialogues != null && dialogues.Length > 0) ? dialogues[0] : "*Bufido* No les creas a las gallinas, jovencita. Te están mintiendo para quedarse con tu comida. El que sabe la verdad está en el techo...";
+        Dialogues.Instance.ShowDialogue(nameNPC, verdadCaballo, avatarHorse, this);
+
+        FarmQuestManager.Instance.talkToHorse = true; // Activa el pase para el gallo
     }
 }
+
 

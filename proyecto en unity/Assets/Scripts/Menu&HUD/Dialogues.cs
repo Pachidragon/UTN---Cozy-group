@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Dialogues: MonoBehaviour
+public class Dialogues : MonoBehaviour
 {
     public static Dialogues Instance { get; private set; }
 
@@ -14,6 +14,9 @@ public class Dialogues: MonoBehaviour
 
     public bool IsDialogueActive => dialoguePanel != null && dialoguePanel.activeSelf;
 
+    // Almacena qué script de NPC tiene el control actual de la pantalla
+    public NPCBase CurrentTalkingNPC { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,14 +27,16 @@ public class Dialogues: MonoBehaviour
         Instance = this;
     }
 
-    // Muestra el cuadro en pantalla con los datos del NPC activo
-    public void ShowDialogue(string npcName, string text, Sprite npcAvatar)
+    public void ShowDialogue(string npcName, string text, Sprite npcAvatar, NPCBase callingNPC)
     {
         if (dialoguePanel == null) return;
 
         dialoguePanel.SetActive(true);
         nameUI.text = npcName;
         dialogueUI.text = text;
+
+        // dueño actual del diálogo
+        CurrentTalkingNPC = callingNPC;
 
         if (npcAvatar != null && avatarUI != null)
         {
@@ -40,16 +45,16 @@ public class Dialogues: MonoBehaviour
         }
         else if (avatarUI != null)
         {
-            avatarUI.enabled = false; // Oculta el cuadro si el NPC no tiene foto
+            avatarUI.enabled = false;
         }
     }
 
-    // Cierra el panel de forma visual
     public void CloseDialogue()
     {
         if (dialoguePanel != null)
         {
             dialoguePanel.SetActive(false);
         }
+        CurrentTalkingNPC = null; 
     }
 }
