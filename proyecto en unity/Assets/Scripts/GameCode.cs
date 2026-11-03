@@ -7,6 +7,12 @@ public class GameCode : MonoBehaviour
 
     [SerializeField] private GameObject losePanel; // Panel que se muestra al perder.
     [SerializeField] private GameObject victoryPanel;  // Panel que se muestra al ganar.
+    [Header("Audio de Fin de Partida")]
+    [SerializeField] private AudioSource endScreenAudio;
+    [SerializeField] private AudioClip loseVoice;
+    [SerializeField] private AudioClip winVoice;
+    private bool endScreenShown = false;
+
 
     private void Awake()
     {
@@ -23,13 +29,35 @@ public class GameCode : MonoBehaviour
     public void LoseOn() // Se ejecuta cuando el jugador pierde.
     {
         Debug.Log("Perdiste ¡Material equivocado!");
+
+        if (endScreenShown) return; // Evita doble disparo
+        endScreenShown = true;
+
         ShowEndPanel(losePanel);
+        PlayEndVoice(loseVoice);
     }
 
     public void VictoryOn() // Se ejecuta cuando el jugador completa el juego.
     {
         Debug.Log("¡Completaste el juego!");
         ShowEndPanel(victoryPanel);
+
+        if (endScreenShown) return; // Evita doble disparo
+        endScreenShown = true;
+
+        PlayEndVoice(winVoice);
+
+
+    }
+
+    // Método nuevo para reproducir la voz
+    private void PlayEndVoice(AudioClip clip)
+    {
+        if (endScreenAudio == null || clip == null) return; // Sin errores si falta algo
+
+        endScreenAudio.Stop();
+        endScreenAudio.clip = clip;
+        endScreenAudio.Play();
     }
 
     private void ShowEndPanel(GameObject panelAActivar) // Activa el panel correspondiente y pausa el juego
