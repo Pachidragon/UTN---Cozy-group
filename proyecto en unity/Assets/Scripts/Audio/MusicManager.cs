@@ -34,6 +34,7 @@ public class MusicManager : MonoBehaviour
     [Header("Duración de las transiciones")]
     [SerializeField] private float fadeOut = 1f;     // Al cambiar de nivel o escena, baja a silencio.
     [SerializeField] private float fadeIn = 1.5f;    // Sube la música del nivel nuevo.
+    [SerializeField] private float initialFadeIn = 0.3f; // Primer arranque (menú).
     [SerializeField] private float layerFade = 1f;   // Capa rítmica.
     [SerializeField] private float zoneFade = 2f;    // Entrar y salir de zonas.
     [SerializeField] private float finalFade = 0.5f; // Victoria y derrota.
@@ -71,6 +72,7 @@ public class MusicManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        if (groupBase != null) groupBase.audioMixer.updateMode = AudioMixerUpdateMode.UnscaledTime;
 
         baseSrc = CreateSource(groupBase, true);
         ritmoSrc = CreateSource(groupRitmo, true);
@@ -150,7 +152,9 @@ public class MusicManager : MonoBehaviour
 
     public void EnterZone(int index)
     {
-        if (currentLevel == null || !currentLevel.HasZone(index)) return;
+        bool ok = currentLevel != null && currentLevel.HasZone(index);
+        Debug.Log($"[Música] EnterZone({index}) → {(ok ? "OK" : "IGNORADA (zona sin clip en el LevelMusic)")}");
+        if (!ok) return;
         currentZone = index;
         Refresh(zoneFade);
     }
@@ -158,6 +162,7 @@ public class MusicManager : MonoBehaviour
     // Solo sale si todavía está en esa zona (evita pisar otra zona a la que ya entró).
     public void ExitZone(int index)
     {
+        Debug.Log($"[Música] ExitZone({index}), zona actual: {currentZone}");
         if (currentZone != index) return;
         currentZone = -1;
         Refresh(zoneFade);
@@ -188,6 +193,8 @@ public class MusicManager : MonoBehaviour
     {
         yield return null; // Espera un frame para que levelRoutine quede bien asignada.
 
+        bool first = !hasMusic;
+
         if (hasMusic)
         {
             snapSilencio.TransitionTo(fadeOut);
@@ -196,11 +203,11 @@ public class MusicManager : MonoBehaviour
 
         StopAll();
         AssignClips(level);
-        EnsureVertical();
+        EnsureVertical(first ? 0.05 : 0.2);
         hasMusic = true;
 
         levelRoutine = null;
-        Refresh(fadeIn);
+        Refresh(first ? initialFadeIn : fadeIn);
     }
 
     private void AssignClips(LevelMusic level)
@@ -264,11 +271,11 @@ public class MusicManager : MonoBehaviour
     }
 
     // Arranca todas las capas verticales juntas, en el mismo instante del reloj de audio.
-    private void EnsureVertical()
+    private void EnsureVertical(double lead = 0.2)
     {
         if (verticalPlaying) return;
 
-        double start = AudioSettings.dspTime + 0.2;
+        double start = AudioSettings.dspTime + lead;
         foreach (AudioSource s in verticalSources) s.PlayScheduled(start);
         verticalPlaying = true;
     }

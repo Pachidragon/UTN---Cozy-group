@@ -14,7 +14,7 @@ public class MusicTrigger : MonoBehaviour
     [Tooltip("Solo para EnterLevel.")]
     [SerializeField] private LevelMusic nivel;
 
-    [Tooltip("Índice de la zona en el LevelMusic del nivel actual (0 = A, 1 = B, 2 = C, 3 = D).")]
+    [Tooltip("Índice de la zona en el LevelMusic del nivel actual.")]
     [SerializeField, Range(0, 3)] private int zona;
 
     [SerializeField] private string playerTag = "Player";
