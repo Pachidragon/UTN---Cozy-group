@@ -36,7 +36,10 @@ public class QuestTrackerUI : MonoBehaviour
     public void ChangeZone(GameZone newZone)
     {
         currentZone = newZone;
-        UpdateQuestPanel();
+        if (InventoryManager.Instance != null)
+        {
+            UpdateQuestPanel();
+        }
     }
 
     public void RegistrarGranjeraHablada()
@@ -80,7 +83,7 @@ public class QuestTrackerUI : MonoBehaviour
                 zoneTitleText.text = "<b>ZONA TUTORIAL</b>";
 
                 bool habloConMoria = NPCTutor.Instance != null && NPCTutor.Instance.currentState != NPCTutor.tutorial.Introduction;
-                listaObjetivos += habloConMoria ? "<s>- Habla con la profesora Casán</s>\n" : "- Habla con la profesora Casán\n";
+                listaObjetivos += habloConMoria ? "<s>Habla con la profesora Casán</s>\n" : "Habla con la profesora Casán\n";
 
                 if (NPCTutor.Instance != null && NPCTutor.Instance.currentState == NPCTutor.tutorial.TutorialDone)
                 {
@@ -89,9 +92,9 @@ public class QuestTrackerUI : MonoBehaviour
                 int ingredientesEnMochila = ObtenerIngredientesTotalesEnInventario();
                 if (ingredientesEnMochila >= 4) tutorialIngredientesCompletados = true;
 
-                listaObjetivos += tutorialIngredientesCompletados ? "<s>- Recoge los ingredientes (4/4)</s>\n" : $"- Recoge los ingredientes ({ingredientesEnMochila}/4)\n";
+                listaObjetivos += tutorialIngredientesCompletados ? "<s>Recoge los ingredientes (4/4)</s>\n" : $"Recoge los ingredientes ({ingredientesEnMochila}/4)\n";
 
-                listaObjetivos += tutorialPocionBebida ? "<s>- Haz la poción (Craftear y beber)</s>" : "- Haz la poción (Craftear y beber)";
+                listaObjetivos += tutorialPocionBebida ? "<s>Haz la poción (Craftear y beber)</s>" : "Haz la poción (Craftear y beber)";
                 break;
 
             case GameZone.CalderoExtra:
@@ -110,26 +113,26 @@ public class QuestTrackerUI : MonoBehaviour
 
                 if (conseguidosCaldero >= 4) calderoIngredientesCompletados = true;
 
-                listaObjetivos += calderoIngredientesCompletados ? "<s>- Recoge los 4 ingredientes (4/4)</s>\n" : $"- Recoge los 4 ingredientes ({conseguidosCaldero}/4)\n";
-                listaObjetivos += calderoPocionBebida ? "<s>- Haz la poción final y bébela</s>" : "- Haz la poción final y bébela";
+                listaObjetivos += calderoIngredientesCompletados ? "<s>Recoge los 4 ingredientes (4/4)</s>\n" : $"Recoge los 4 ingredientes ({conseguidosCaldero}/4)\n";
+                listaObjetivos += calderoPocionBebida ? "<s>Haz la poción final y bébela</s>" : "Haz la poción final y bébela";
                 break;
 
             case GameZone.Hongos:
                 zoneTitleText.text = "<b>ZONA HONGOS</b>";
                 int hongosReales = ObtenerCantidadItemReal("Funghi_01");
-                listaObjetivos += (hongosReales >= 4) ? "<s>- Encuentra 4 hongos (4/4)</s>" : $"- Encuentra 4 hongos ({hongosReales}/4)";
+                listaObjetivos += (hongosReales >= 4) ? "<s>Encuentra 4 hongos (4/4)</s>" : $"Encuentra 4 hongos ({hongosReales}/4)";
                 break;
 
             case GameZone.Frutas:
                 zoneTitleText.text = "<b>ZONA FRUTAS</b>";
                 int frutasReales = ObtenerCantidadItemReal("Fruit_01");
-                listaObjetivos += (frutasReales >= 2) ? "<s>- Encuentra 2 frutas (2/2)</s>" : $"- Encuentra 2 frutas ({frutasReales}/2)";
+                listaObjetivos += (frutasReales >= 2) ? "<s>Encuentra 2 frutas (2/2)</s>" : $"Encuentra 2 frutas ({frutasReales}/2)";
                 break;
 
             case GameZone.Cueva:
                 zoneTitleText.text = "<b>ZONA CUEVA</b>";
                 int diamantesReales = ObtenerCantidadItemReal("Crystal_01");
-                listaObjetivos += (diamantesReales >= 3) ? "<s>- Encuentra 3 diamantes (3/3)</s>" : $"- Encuentra 3 diamantes ({diamantesReales}/3)";
+                listaObjetivos += (diamantesReales >= 3) ? "<s>Encuentra 3 diamantes (3/3)</s>" : $"Encuentra 3 diamantes ({diamantesReales}/3)";
                 break;
 
             case GameZone.Granja:
@@ -137,26 +140,26 @@ public class QuestTrackerUI : MonoBehaviour
                 if (FarmQuestManager.Instance != null)
                 {
                     bool granjeraSatisfecha = granjeraHabladaLocal || FarmQuestManager.Instance.talkToFarmer;
-                    listaObjetivos += granjeraSatisfecha ? "<s>- Investiga la granja (Habla con la granjera)</s>\n" : "- Investiga la granja (Habla con la granjera)\n";
+                    listaObjetivos += granjeraSatisfecha ? "<s>Investiga la granja (Habla con la granjera)</s>\n" : "Investiga la granja (Habla con la granjera)\n";
 
                     int progresoAnimales = 0;
                     if (granjeraSatisfecha) progresoAnimales = 2; // Gallinas interrogadas
                     if (FarmQuestManager.Instance.talkToHorse) progresoAnimales = 3; // Caballo interrogado
 
-                    listaObjetivos += (progresoAnimales >= 3) ? "<s>- Pregunta a los animales (3/3)</s>\n" : $"- Pregunta a los animales ({progresoAnimales}/3)\n";
+                    listaObjetivos += (progresoAnimales >= 3) ? "<s>Pregunta a los animales (3/3)</s>\n" : $"Pregunta a los animales ({progresoAnimales}/3)\n";
 
                     int tieneHierbaGallo = ObtenerCantidadItemReal("Herb_01");
                     bool consiguioHierba = tieneHierbaGallo > 0 || FarmQuestManager.Instance.questCompleted;
-                    listaObjetivos += consiguioHierba ? "<s>- Encuentra la hierba</s>" : "- Encuentra la hierba";
+                    listaObjetivos += consiguioHierba ? "<s>Encuentra la hierba</s>" : "Encuentra la hierba";
                 }
                 break;
 
             case GameZone.Final:
                 zoneTitleText.text = "<b>ZONA FINAL</b>";
-                listaObjetivos += "- Habla con la profesora final\n";
+                listaObjetivos += "Habla con la profesora final\n";
                 int yerbaReal = ObtenerCantidadItemReal("Yerba");
-                listaObjetivos += (yerbaReal > 0) ? "<s>- Recoge la Yerba Mate</s>\n" : "- Recoge la Yerba Mate\n";
-                listaObjetivos += "- Ceba el mate ceremonial";
+                listaObjetivos += (yerbaReal > 0) ? "<s>Recoge la Yerba Mate</s>\n" : "Recoge la Yerba Mate\n";
+                listaObjetivos += "Ceba el mate ceremonial";
                 break;
         }
 
