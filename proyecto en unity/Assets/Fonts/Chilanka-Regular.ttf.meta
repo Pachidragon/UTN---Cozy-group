@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f9177f091554c54b8de5f469b82afc9
+guid: e85b00be318d2114a80f2392571f801f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Faculty Glyphic
+  - Chilanka
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
