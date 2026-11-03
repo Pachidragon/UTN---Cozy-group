@@ -171,7 +171,14 @@ public class CraftingPanel : MonoBehaviour
             case CraftResult.WrongItem:
                 // Elimina solo las unidades incorrectas de los stacks usados, las verdaderas se quedan.
                 foreach (int index in placed) inventory.RemoveWrongFromSlot(index);
-                Fail("Parece que se ha intentado usar un item incorrecto...");
+
+                // Resta un corazón visual a Clementina
+                if (HUDVida.Instance != null)
+                {
+                    HUDVida.Instance.GetDamage();
+                }
+
+                Fail("Parece que se ha intentado usar un ítem incorrecto...");
                 break;
 
             case CraftResult.WrongRecipe:
