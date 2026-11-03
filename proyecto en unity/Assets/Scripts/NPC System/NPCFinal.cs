@@ -50,6 +50,11 @@ public class NPCVictoria : NPCBase
             Instantiate(prefabItemFinal, pivotSpawnItemFinal.position, pivotSpawnItemFinal.rotation);
             Debug.Log("[Final]: Mirtha te entregó la Yerba Mate.");
         }
+
+        if (QuestTrackerUI.Instance != null)
+        {
+            QuestTrackerUI.Instance.UpdateQuestPanel();
+        }
     }
 }
 

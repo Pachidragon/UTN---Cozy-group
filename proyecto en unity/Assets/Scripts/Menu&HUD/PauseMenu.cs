@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
 
     void Update() // Detecta las teclas utilizadas para abrir o cerrar el menú de pausa.
     {
+        if (Time.timeScale == 0f && !isPaused)
+        {
+            return; // Evita que el ESC rompa las pantallas finales
+        }
+
         if (Keyboard.current != null && (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame))
         {
             if (isPaused)

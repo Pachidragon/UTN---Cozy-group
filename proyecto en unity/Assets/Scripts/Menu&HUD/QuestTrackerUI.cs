@@ -156,11 +156,20 @@ public class QuestTrackerUI : MonoBehaviour
 
             case GameZone.Final:
                 zoneTitleText.text = "<b>ZONA FINAL</b>";
-                listaObjetivos += "Habla con la profesora final\n";
+
+                // Busca si el script final ya cambió su booleano a true
+                NPCVictoria mirtha = FindFirstObjectByType<NPCVictoria>();
+                bool finalHablo = mirtha != null && mirtha.gameObject.activeSelf && mirtha.GetType().GetField("terminoDeHablar", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.GetValue(mirtha) is bool b && b;
+
+                if (mirtha != null && ObtenerCantidadItemReal("Yerba") > 0) finalHablo = true;
+
+                listaObjetivos += finalHablo ? "<s>Habla con la profesora final</s>\n" : "Habla con la profesora final\n";
+
                 int yerbaReal = ObtenerCantidadItemReal("Yerba");
                 listaObjetivos += (yerbaReal > 0) ? "<s>Recoge la Yerba Mate</s>\n" : "Recoge la Yerba Mate\n";
                 listaObjetivos += "Ceba el mate ceremonial";
                 break;
+
         }
 
         objectiveListText.text = listaObjetivos;
