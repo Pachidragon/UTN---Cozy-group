@@ -13,6 +13,9 @@ public class GameCode : MonoBehaviour
     [SerializeField] private AudioClip winVoice;
     private bool endScreenShown = false;
 
+    [SerializeField] private PlayerInteractor interactor;
+
+
 
     private void Awake()
     {
@@ -66,6 +69,7 @@ public class GameCode : MonoBehaviour
     {
         if (panelAActivar != null)
         {
+            if (interactor != null) interactor.SetBlocked(true);
             panelAActivar.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;

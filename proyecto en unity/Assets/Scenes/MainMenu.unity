@@ -619,8 +619,9 @@ MonoBehaviour:
   snapFinal: {fileID: 6110693912607355429, guid: 499fed369f0b09c4bbb02fd9e6548689, type: 2}
   fadeOut: 1
   fadeIn: 0.5
+  initialFadeIn: 0.3
   layerFade: 1
-  zoneFade: 2
+  zoneFade: 0.5
   finalFade: 0.5
   victoryClip: {fileID: 8300000, guid: d747051e824b46547a75fd78cff4a858, type: 3}
   defeatClip: {fileID: 8300000, guid: d26d1fe099284654ebc4bb605f4db58f, type: 3}
@@ -629,6 +630,7 @@ MonoBehaviour:
     music: {fileID: 11400000, guid: c88adb7811d5188408a9cf8732b64543, type: 2}
   - sceneName: Nivel_1_2_3
     music: {fileID: 11400000, guid: 8e4fc5fc0a2300143a3fdfee1ebc0d13, type: 2}
+  sourceVolume: 0.35
 --- !u!4 &379835738
 Transform:
   m_ObjectHideFlags: 0

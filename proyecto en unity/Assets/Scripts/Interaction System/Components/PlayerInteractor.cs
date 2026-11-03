@@ -23,6 +23,18 @@ public class PlayerInteractor : MonoBehaviour
 
     private readonly Collider[] hits = new Collider[8]; // Buffer reutilizable para no generar basura cada frame.
 
+    private bool blocked;
+
+    public void SetBlocked(bool value)
+    {
+        blocked = value;
+        if (blocked)
+        {
+            currentInteractable = null;
+            currentTarget = null;
+            SetPromptVisible(false);
+        }
+    }
     private void OnEnable()
     {
         if (interactionReference != null && interactionReference.action != null)
@@ -44,6 +56,8 @@ public class PlayerInteractor : MonoBehaviour
     }
     private void Update()
     {
+        if (blocked) return;
+
         currentInteractable = FindClosestInteractable();
 
         if (currentTarget == null)
@@ -66,6 +80,8 @@ public class PlayerInteractor : MonoBehaviour
     }
     private void PlayerInteracted(InputAction.CallbackContext context)
     {
+        if (blocked) return;
+
         if (currentInteractable != null)
         {
             // Buscamos si el objeto que estamos tocando tiene el script Recolectable

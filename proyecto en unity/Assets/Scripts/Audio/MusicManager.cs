@@ -33,10 +33,10 @@ public class MusicManager : MonoBehaviour
 
     [Header("Duración de las transiciones")]
     [SerializeField] private float fadeOut = 1f;     // Al cambiar de nivel o escena, baja a silencio.
-    [SerializeField] private float fadeIn = 1.5f;    // Sube la música del nivel nuevo.
+    [SerializeField] private float fadeIn = 0.5f;    // Sube la música del nivel nuevo.
     [SerializeField] private float initialFadeIn = 0.3f; // Primer arranque (menú).
     [SerializeField] private float layerFade = 1f;   // Capa rítmica.
-    [SerializeField] private float zoneFade = 2f;    // Entrar y salir de zonas.
+    [SerializeField] private float zoneFade = 0.5f;    // Entrar y salir de zonas.
     [SerializeField] private float finalFade = 0.5f; // Victoria y derrota.
 
     [Header("Victoria y derrota")]
@@ -45,6 +45,10 @@ public class MusicManager : MonoBehaviour
 
     [Header("Música por escena")]
     [SerializeField] private SceneMusic[] sceneMusics;
+
+    [Header("Volumen de las fuentes")]
+    [Range(0f, 1f)]
+    [SerializeField] private float sourceVolume = 0.35f;
 
     private AudioSource baseSrc;
     private AudioSource ritmoSrc;
@@ -107,6 +111,7 @@ public class MusicManager : MonoBehaviour
         a.playOnAwake = false;
         a.loop = loop;
         a.spatialBlend = 0f; // 2D
+        a.volume = sourceVolume;
         a.outputAudioMixerGroup = group;
         allSources.Add(a);
         return a;
