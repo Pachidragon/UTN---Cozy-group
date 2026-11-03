@@ -100,7 +100,7 @@ public class QuestTrackerUI : MonoBehaviour
                 int ing1 = ObtenerCantidadItemReal("Funghi_01");
                 int ing2 = ObtenerCantidadItemReal("Fruit_01");
                 int ing3 = ObtenerCantidadItemReal("Crystal_01");
-                int ing4 = ObtenerCantidadItemReal("Item_Herb");
+                int ing4 = ObtenerCantidadItemReal("Herb_01");
 
                 int conseguidosCaldero = 0;
                 if (ing1 > 0) conseguidosCaldero++;
