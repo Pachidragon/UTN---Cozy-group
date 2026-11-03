@@ -419,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (14)
+      value: bush_15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2994,7 +2994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (26)
+      value: bush_19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3185,43 +3185,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.47
+      value: 39.432568
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: -0.15118675
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 82.95
+      value: 82.938736
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9983827
+      value: 0.99204814
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.013593856
+      value: 0.010361975
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.052462727
+      value: 0.12393907
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.017171947
+      value: 0.019295033
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.659
+      value: 0.904
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -5.989
+      value: 14.261
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.884
+      value: 2.342
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_Name
@@ -7834,7 +7834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111504400}
   m_Layer: 0
-  m_Name: Arbustos
+  m_Name: bushes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12544,7 +12544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (6)
+      value: bush_07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26274,7 +26274,7 @@ GameObject:
   - component: {fileID: 307510682}
   - component: {fileID: 307510681}
   m_Layer: 0
-  m_Name: 'hubsky '
+  m_Name: HubSky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288000,7 +288000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (20)
+      value: bush_24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -292137,7 +292137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (11)
+      value: bush_12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -293915,7 +293915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (17)
+      value: bush_28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -294070,7 +294070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (30)
+      value: bush_23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -306295,6 +306295,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 099c7fe3a5a9acd4c90619f449039f4a, type: 3}
   m_ActionId: 55ada3bf-7c60-4edb-8a85-37a2683c8aed
+--- !u!4 &649559057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+  m_PrefabInstance: {fileID: 1856073200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &650838137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8599729353718037414, guid: ec0e1bd2053804a43828b774d0631cb3, type: 3}
@@ -310862,7 +310867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (2)
+      value: bush_03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -321409,7 +321414,7 @@ GameObject:
   - component: {fileID: 797950913}
   - component: {fileID: 797950912}
   m_Layer: 0
-  m_Name: Terrain_0_0_7d8620af-884a-47f5-8d85-03ce50d75a85
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326986,7 +326991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (24)
+      value: bush_18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -333056,7 +333061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (19)
+      value: bush_30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -338613,11 +338618,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -365425,7 +365430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_Tangents.Array.data[1000].w
@@ -471786,7 +471791,7 @@ PrefabInstance:
     - target: {fileID: 8912322030883458886, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1646289987}
+      objectReference: {fileID: 1368685008}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -475813,7 +475818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (22)
+      value: bush_26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -478618,7 +478623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (3)
+      value: bush_04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -479419,7 +479424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (21)
+      value: bush_25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -488389,7 +488394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (27)
+      value: bush_20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -491329,6 +491334,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1934448377}
   m_SourcePrefab: {fileID: 100100000, guid: 85874af9312bcc045b4856cd08277d4d, type: 3}
+--- !u!4 &1246420752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+  m_PrefabInstance: {fileID: 1668744648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1250874558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f91aeee75bec1314cbbd0037fdd5a5e6, type: 3}
@@ -493680,7 +493690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1262785874}
   m_Layer: 0
-  m_Name: Cerramiento
+  m_Name: ZoneLimits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595380,10 +595390,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
       propertyPath: m_Faces.Array.data[238].m_SmoothingGroup
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
-      propertyPath: m_Faces.Array.data[239].m_SmoothingGroup
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 317807197805060353, guid: 1907648b7a6502a4b8f01a431e08b8dd, type: 3}
@@ -975960,7 +975966,7 @@ PrefabInstance:
     - target: {fileID: 8205415042031568054, guid: 24833d30ed20c3c4a98e95c5121d73a5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 12067755}
+      objectReference: {fileID: 1892675424}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -976451,7 +976457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (13)
+      value: bush_14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -977125,7 +977131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (8)
+      value: bush_09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -985670,7 +985676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391970098}
   m_Layer: 0
-  m_Name: area_2_entrance_1 (1)
+  m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985689,6 +985695,8 @@ Transform:
   m_LocalScale: {x: 0.5985077, y: 0.5359721, z: 0.5359721}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1246420752}
+  - {fileID: 649559057}
   - {fileID: 1291997946}
   - {fileID: 2093466859}
   - {fileID: 48505950}
@@ -986445,7 +986453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (9)
+      value: bush_10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -989749,7 +989757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (1)
+      value: bush_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -992818,7 +992826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (5)
+      value: bush_06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -993576,7 +993584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (7)
+      value: bush_08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -998527,7 +998535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto
+      value: bush_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1000191,7 +1000199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (15)
+      value: bush_16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1001337,7 +1001345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (29)
+      value: bush_22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1003490,6 +1003498,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8599729353718037414, guid: ec0e1bd2053804a43828b774d0631cb3, type: 3}
   m_PrefabInstance: {fileID: 1668660042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1668744648
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1391970098}
+    m_Modifications:
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.782878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9879852
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.98718745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.663055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5965166
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 78.87144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.04250348
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.008514066
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9990601
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00008875923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224817397504757497, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_Name
+      value: Sphere_light_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373345662266698473, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: previewInEditor
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
 --- !u!1 &1670632841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005434,7 +1005515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (23)
+      value: bush_27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1006243,7 +1006324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (12)
+      value: bush_13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1006391,7 +1006472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (16)
+      value: bush_17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1010780,7 +1010861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (4)
+      value: bush_05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1012408,7 +1012489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (28)
+      value: bush_21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1015174,7 +1015255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2214a9e4b9ca0804eb761aa81cd77dc7, type: 3}
       propertyPath: m_Name
-      value: Plant_big_1 (1)
+      value: Plant_big_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1021119,7 +1021200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (18)
+      value: bush_29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1022905,6 +1022986,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
   m_PrefabInstance: {fileID: 278678552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1856073200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1391970098}
+    m_Modifications:
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.782878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9879852
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.98718745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 40.86938
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6272733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 81.22017
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.04250348
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.008514066
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9990601
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00008875923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844743113860411855, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224817397504757497, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
+      propertyPath: m_Name
+      value: Sphere_light_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31bca14b0fb7b9d4293ec2bdcb28de96, type: 3}
 --- !u!1001 &1856089193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1043612,7 +1043762,7 @@ PrefabInstance:
     - target: {fileID: 8205415042031568054, guid: 24833d30ed20c3c4a98e95c5121d73a5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1641763247}
+      objectReference: {fileID: 40324101}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1294008,7 +1294158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbdd28d92b708e844a4b9ab4797ced5b, type: 3}
       propertyPath: m_Name
-      value: arbusto (10)
+      value: bush_11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
