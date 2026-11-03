@@ -31,7 +31,10 @@ public class MainMenu : MonoBehaviour
             Debug.LogWarning("El nombre de la escena de créditos no está asignado en el Inspector.");
         }
     }
-
+    public void VolverAlMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Asegurate de que el nombre coincida
+    }
     public void Quit()  // Cierra la aplicación.
     {
         Debug.Log("Saliendo del juego...");
