@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dbd8d0a4ff51a458afed3ed83c7169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  gameScene: Nivel_1_2_3
+  gameScene: Intro
   creditsScene: Credits
 --- !u!1 &1005388755
 GameObject:
