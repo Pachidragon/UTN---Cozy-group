@@ -90,6 +90,7 @@ public class CraftingPanel : MonoBehaviour
         if (resultIcon != null) resultIcon.SetActive(false);
 
         panelRoot.SetActive(true);
+        if (MusicManager.Instance != null) MusicManager.Instance.SetRhythm(true);
         Refresh();
         onOpened?.Invoke();
     }
@@ -97,6 +98,8 @@ public class CraftingPanel : MonoBehaviour
     // Cierra el panel. Si el crafteo salió bien, el caldero instancia la poción.
     public void Close()
     {
+        if (MusicManager.Instance != null) MusicManager.Instance.SetRhythm(false);
+
         panelRoot.SetActive(false);
 
         if (success && currentCauldron != null) currentCauldron.SpawnPotion();

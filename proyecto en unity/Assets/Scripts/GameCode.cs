@@ -34,6 +34,7 @@ public class GameCode : MonoBehaviour
         endScreenShown = true;
 
         ShowEndPanel(losePanel);
+        MusicManager.Instance.PlayDefeat();
         PlayEndVoice(loseVoice);
     }
 
@@ -45,6 +46,7 @@ public class GameCode : MonoBehaviour
         if (endScreenShown) return; // Evita doble disparo
         endScreenShown = true;
 
+        MusicManager.Instance.PlayVictory();
         PlayEndVoice(winVoice);
 
 

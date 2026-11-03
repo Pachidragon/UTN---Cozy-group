@@ -186,6 +186,8 @@ public class MusicManager : MonoBehaviour
     // Fade out de lo que suena, cambia los clips y hace fade in de la base del nivel nuevo.
     private IEnumerator LevelRoutine(LevelMusic level)
     {
+        yield return null; // Espera un frame para que levelRoutine quede bien asignada.
+
         if (hasMusic)
         {
             snapSilencio.TransitionTo(fadeOut);
