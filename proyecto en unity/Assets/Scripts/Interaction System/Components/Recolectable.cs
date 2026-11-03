@@ -10,8 +10,9 @@ public class Recolectable : MonoBehaviour, IInteractable
     [Header("Behaviour")]
     [SerializeField] private bool destroyOnPickUp = true;
     private bool pickedUp = false;
-    [SerializeField] private bool wrongItem = false; // Indica si el objeto es un elemento incorrecto.
-    
+    [SerializeField] private bool wrongItem = false; // Indica si el objeto es un elemento incorrecto (se guarda en el inventario como falso).
+    [SerializeField] private bool notStored = false;    // Item falso. Se recoge y se destruye, pero no entra al inventario.
+
     [Header("Contexto de Animación")]
     [SerializeField] private AnimationContext animationContext = AnimationContext.GrabDown;
     public AnimationContext CurrentContext => animationContext;
@@ -30,7 +31,8 @@ public class Recolectable : MonoBehaviour, IInteractable
 
     private bool TryPickUp()
     {
-        if (pickedUp || itemData == null) return false;
+        if (pickedUp) return false;
+        if (itemData == null && !notStored) return false; // Solo los que se guardan necesitan ItemData.
 
         pickedUp = true;
         return true;
@@ -47,15 +49,18 @@ public class Recolectable : MonoBehaviour, IInteractable
             }
         }
 
-        bool added = InventoryManager.Instance.AddItem(itemData, quantity, wrongItem);
-
-        if (!added)
+        if (!notStored)
         {
-            pickedUp = false; // Inventario lleno, se puede reintentar.
-            return;
+            bool added = InventoryManager.Instance.AddItem(itemData, quantity, wrongItem);
+
+            if (!added)
+            {
+                pickedUp = false; // Inventario lleno, se puede reintentar.
+                return;
+            }
         }
 
-        Debug.Log($"Recogido:{itemData.itemName} x{quantity}");
+        Debug.Log(itemData != null ? $"Recogido:{itemData.itemName} x{quantity}" : "Recogido: item falso");
 
         if (destroyOnPickUp)
             Destroy(gameObject);

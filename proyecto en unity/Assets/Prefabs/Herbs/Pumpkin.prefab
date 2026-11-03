@@ -33990,7 +33990,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 933
+  m_VersionIndex: 948
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -34112,7 +34112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 0}
+  quantity: 1
+  destroyOnPickUp: 1
   wrongItem: 1
+  notStored: 1
+  animationContext: 0
 --- !u!1001 &1743579452143455511
 PrefabInstance:
   m_ObjectHideFlags: 0

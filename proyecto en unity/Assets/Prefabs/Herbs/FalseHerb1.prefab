@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 42.52, y: 2.59, z: 88.36}
-  m_LocalScale: {x: 2.2376869, y: 2.2376869, z: 2.2376873}
+  m_LocalScale: {x: 2.5970097, y: 2.237687, z: 2.5811327}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1629336808825074195}
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1314
+  m_VersionIndex: 1329
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -511,7 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215ade7a0c036c419fe45483e6b2e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recolectable
+  itemData: {fileID: 0}
+  quantity: 1
+  destroyOnPickUp: 1
   wrongItem: 1
+  notStored: 1
+  animationContext: 1
 --- !u!1001 &1231215857493988856
 PrefabInstance:
   m_ObjectHideFlags: 0
