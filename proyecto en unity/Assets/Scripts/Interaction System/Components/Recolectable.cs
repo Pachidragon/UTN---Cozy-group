@@ -21,11 +21,23 @@ public class Recolectable : MonoBehaviour, IInteractable
     public int Quantity => quantity;
     public bool WrongItem => wrongItem;
 
-
     public void Interact()
     {
-        if (!TryPickUp()) return;
+        if (pickedUp) return;
 
+        if (NPCTutor.Instance != null && NPCTutor.Instance.currentState == NPCTutor.tutorial.Introduction)
+        {
+            Debug.Log("[Tutorial]: Recolección bloqueada por orden narrativa.");
+
+            if (Dialogues.Instance != null)
+            {
+                Dialogues.Instance.ShowDialogue("Clementina", "Primero debería presentarme ante la Profesora Casán antes de andar tocando sus ingredientes...", null, null);
+            }
+
+            return; // Bloquea por completo la recolección física del objeto
+        }
+
+        pickedUp = true;
         OnPickedUp();
     }
 

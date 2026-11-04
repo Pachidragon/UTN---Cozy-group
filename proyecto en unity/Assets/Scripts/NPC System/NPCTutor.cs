@@ -11,9 +11,10 @@ public class NPCTutor : NPCBase
 
     [Header("Identidad Visual UI")]
     [SerializeField] private Sprite avatarNPC;
+
     public enum tutorial { Introduction, Potion, TutorialDone }
     public tutorial currentState = tutorial.Introduction;
-
+    private bool yaSePresentoConClementina = false;
     private bool showingRecipe = false;
 
     private void Awake()
@@ -24,12 +25,21 @@ public class NPCTutor : NPCBase
             return;
         }
         Instance = this;
+
+        // Limpieza total en el despertar del motor
+        yaSePresentoConClementina = false;
+        currentState = tutorial.Introduction;
     }
 
-    // Usamos override para sumar lo nuestro al Start de la clase base
     protected override void Start()
     {
-        base.Start(); // Ejecuta la búsqueda del jugador que está en NPCBase
+        base.Start(); // Ejecuta la búsqueda del jugador nativa de NPCBase
+
+        // Confirmación en el inicio físico del nivel
+        yaSePresentoConClementina = false;
+        currentState = tutorial.Introduction;
+        showingRecipe = false;
+
         PlayAnimation("Idle");
     }
 
@@ -54,30 +64,47 @@ public class NPCTutor : NPCBase
     {
         if (Dialogues.Instance == null) return;
         PlayAnimation("Talk");
+        if (!yaSePresentoConClementina)
+        {
+            Dialogues.Instance.ShowDialogue(nameNPC, "¡Hola, querida! Hoy te enseñaré el arte de la alquimia básica. Prepara tu primera poción usando el caldero para demostrarme lo que vales.", avatarNPC, this);
 
+            if (QuestTrackerUI.Instance != null)
+            {
+                QuestTrackerUI.Instance.UpdateQuestPanel();
+            }
+
+            Invoke(nameof(CambiarEstadoAPotionSeguro), 0.5f);
+
+            Invoke(nameof(RegresarAIdle), 3f);
+            return; // Corta por completo la ejecución del frame actual
+        }
+
+        // Lógica de diálogos recurrentes una vez terminada la presentación inicial
         switch (currentState)
         {
-            case tutorial.Introduction:
-                Dialogues.Instance.ShowDialogue(nameNPC, "¡Hola, querida! Hoy te enseñaré el arte de la alquimia básica. Prepara tu primera poción usando el caldero para demostrarme lo que vales.", avatarNPC, this);
-                currentState = tutorial.Potion;
-                Invoke(nameof(RegresarAIdle), 3f);
-                break;
-
             case tutorial.Potion:
                 Dialogues.Instance.ShowDialogue(nameNPC, "¿Qué esperas, mi amor? Ve al caldero y prepara la poción para poder continuar.", avatarNPC, this);
                 Invoke(nameof(RegresarAIdle), 2f);
                 break;
 
             case tutorial.TutorialDone:
-                Dialogues.Instance.ShowDialogue(nameNPC, "¿Necesitas ayuda con los ingredientes de la receta? Dime cuál buscas:\n[1] Bosque  [2] Hongos  [3] Cueva  [4] Granja", avatarNPC, this);
+                Dialogues.Instance.ShowDialogue(nameNPC, "¿Necesitas ayuda con los ingredientes de la receta? Dime cuál buscas:\n Bosque  Hongos  Cueva  Granja", avatarNPC, this);
                 showingRecipe = true;
                 break;
         }
     }
 
+    // Método auxiliar para retrasar el cambio de estado de forma segura
+    private void CambiarEstadoAPotionSeguro()
+    {
+        yaSePresentoConClementina = true; // Clausura la introducción definitiva
+        currentState = tutorial.Potion;   // Libera la recolección física
+        Debug.Log("[Tutorial]: Introducción finalizada con éxito. Recolección de ítems liberada.");
+    }
+
     public void PotionCrafted()
     {
-        if (currentState == tutorial.Potion && Dialogues.Instance != null)
+        if (Dialogues.Instance != null)
         {
             Dialogues.Instance.ShowDialogue(nameNPC, "¡Excelente trabajo! La poción es perfecta. He desbloqueado la puerta hacia las zonas exteriores para que puedas continuar mi amor.", avatarNPC, this);
 
@@ -87,6 +114,7 @@ public class NPCTutor : NPCBase
             }
 
             currentState = tutorial.TutorialDone;
+
             if (QuestTrackerUI.Instance != null)
             {
                 QuestTrackerUI.Instance.UpdateQuestPanel();

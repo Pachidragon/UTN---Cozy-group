@@ -143,10 +143,23 @@ public class CraftingPanel : MonoBehaviour
         InventoryManager inventory = InventoryManager.Instance;
         CraftResult result = CraftingLogic.Evaluate(placed, inventory.Slots, currentCauldron.Recipe);
 
+        // Revisa si la receta pide cantidades mayores a 1. El tutorial solo pide 1 unidad de cada cosa.
+        bool esTutorial = true;
+        if (currentCauldron != null && currentCauldron.Recipe != null)
+        {
+            foreach (var ing in currentCauldron.Recipe)
+            {
+                if (ing.amount > 1)
+                {
+                    esTutorial = false; // Si pide más de 1 ingrediente de algo, no es el tutorial
+                    break;
+                }
+            }
+        }
+
         switch (result)
         {
             case CraftResult.Success:
-                // Consume solo la cantidad que pide la receta de cada stack.
                 foreach (int index in placed)
                 {
                     InventorySlot slot = inventory.Slots[index];
@@ -169,27 +182,59 @@ public class CraftingPanel : MonoBehaviour
                 break;
 
             case CraftResult.WrongItem:
-                // Elimina solo las unidades incorrectas de los stacks usados, las verdaderas se quedan.
                 foreach (int index in placed) inventory.RemoveWrongFromSlot(index);
 
-                // Resta un corazón visual a Clementina
-                if (HUDVida.Instance != null)
+                if (esTutorial)
                 {
-                    HUDVida.Instance.GetDamage();
+                    placed.Clear();
+                    Refresh();
+                    SetMessage("¡Cuidado! Usaste un ingrediente incorrecto. Menos mal que estás practicando...");
                 }
-
-                Fail("Parece que se ha intentado usar un ítem incorrecto...");
+                else
+                {
+                    if (HUDVida.Instance != null)
+                    {
+                        HUDVida.Instance.GetDamage();
+                    }
+                    Fail("Parece que se ha intentado usar un ítem incorrecto...");
+                }
                 break;
 
             case CraftResult.WrongRecipe:
-                Fail("Receta incorrecta.");
+                if (esTutorial)
+                {
+                    placed.Clear();
+                    Refresh();
+                    SetMessage("Esa combinación no forma ninguna receta. Sigue intentando, es el tutorial.");
+                }
+                else
+                {
+                    Fail("Receta incorrecta.");
+                }
                 break;
         }
     }
-
-    // Registra un intento fallido. Si se acaban los intentos, activa la derrota.
+    // Registra un intento fallido
     private void Fail(string message)
     {
+        bool esTutorial = true;
+        if (currentCauldron != null && currentCauldron.Recipe != null)
+        {
+            foreach (var ing in currentCauldron.Recipe)
+            {
+                if (ing.amount > 1) { esTutorial = false; break; }
+            }
+        }
+
+        if (esTutorial)
+        {
+            attemptsLeft = maxAttempts;
+            placed.Clear();
+            Refresh();
+            SetMessage("Combinación incorrecta. Sigue intentando, es el tutorial.");
+            return;
+        }
+
         attemptsLeft--;
         placed.Clear();
         Refresh();
@@ -197,7 +242,7 @@ public class CraftingPanel : MonoBehaviour
         if (attemptsLeft <= 0)
         {
             Close();
-            if (GameCode.Instance != null) GameCode.Instance.LoseOn(); // Panel de derrota.
+            if (GameCode.Instance != null) GameCode.Instance.LoseOn();
             return;
         }
 

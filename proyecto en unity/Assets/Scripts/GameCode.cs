@@ -58,11 +58,14 @@ public class GameCode : MonoBehaviour
     // Método nuevo para reproducir la voz
     private void PlayEndVoice(AudioClip clip)
     {
-        if (endScreenAudio == null || clip == null) return; // Sin errores si falta algo
+        if (endScreenAudio == null || clip == null) return;
 
-        endScreenAudio.Stop();
-        endScreenAudio.clip = clip;
-        endScreenAudio.Play();
+        if (endScreenAudio.gameObject != null)
+        {
+            endScreenAudio.Stop();
+            endScreenAudio.clip = clip;
+            endScreenAudio.Play();
+        }
     }
 
     private void ShowEndPanel(GameObject panelAActivar) // Activa el panel correspondiente y pausa el juego
