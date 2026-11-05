@@ -305216,7 +305216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &511536231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -330593,7 +330593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &728521962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029536,7 +1029536,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Clementina se ha recibido\r\n\xA1Hay que festejar!\r\nAhora habr\xE1 que
-    ver qu\xE9 le depara\r\nla vida laboral\r\n"
+    ver qu\xE9 le depara\r\nen la vida laboral\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3990c33ace0924040ad719d75206e833, type: 2}
   m_sharedMaterial: {fileID: 7444633713661605347, guid: 3990c33ace0924040ad719d75206e833, type: 2}

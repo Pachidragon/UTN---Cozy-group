@@ -2371,7 +2371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216.4, y: 82.5}
+  m_AnchoredPosition: {x: 187, y: 92}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406397097
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -97.831474, y: 0, z: 237.37656, w: 0}
+  m_margin: {x: -97.831474, y: -22.084389, z: 237.37656, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2782,7 +2782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 193.5, y: -73.9}
+  m_AnchoredPosition: {x: 196, y: -73}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626310943
@@ -2919,7 +2919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 194.2, y: -2}
+  m_AnchoredPosition: {x: 197, y: -6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1659104977
@@ -3056,7 +3056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: -25}
+  m_AnchoredPosition: {x: 218, y: -29}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689005410
@@ -3457,7 +3457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: 112}
+  m_AnchoredPosition: {x: -49, y: 111}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033332576
@@ -3480,9 +3480,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Esta es la historia de Clementina\r\nY la tesis a presentara\r\nElla quiere
-    licenciarse\r\ny para eso debera aprobar\r\n\r\nPreparara una pocion\r\nElementos
-    recolectara\r\nY, si todo sale bien,\r\nSu t\xEDtulo obtendra\r\n"
+  m_text: "Esta es la historia de Clementina\r\nY la tesis que tendra que presentar\r\nElla
+    quiere licenciarse\r\ny para eso debera aprobar\r\n\r\nPreparara una pocion\r\nElementos
+    recolectara\r\nY finalmente, si todo sale bien,\r\nSu t\xEDtulo obtendra\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3990c33ace0924040ad719d75206e833, type: 2}
   m_sharedMaterial: {fileID: 7444633713661605347, guid: 3990c33ace0924040ad719d75206e833, type: 2}
@@ -3548,7 +3548,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -97.831474, y: 0, z: -198.40749, w: 0}
+  m_margin: {x: -97.831474, y: 0, z: -260.63507, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
