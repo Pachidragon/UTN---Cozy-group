@@ -1064579,7 +1064579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCTutor
   nameNPC: "Profesora Cas\xE1n"
   dialogues: []
-  distanciaParaHablar: 3
+  distanciaParaHablar: 4
   doorPlace: {fileID: 2061153336}
   npcAnimator: {fileID: 904078550}
   avatarNPC: {fileID: 21300000, guid: db0606fc1b20e07419b70914cb7381ae, type: 3}
