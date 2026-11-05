@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: Item_Fruit
   icon: {fileID: 21300000, guid: 8dcafb97272fb224b8caaf34780ab048, type: 3}
   description: Fruta con propiedades especiales
-  maxStackSize: 10
+  maxStackSize: 99

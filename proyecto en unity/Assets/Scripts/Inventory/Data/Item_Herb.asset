@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: Item_Herb
   icon: {fileID: 21300000, guid: 4fb9639cefc9ef341aef03267c957bbe, type: 3}
   description: Hierba con propiedades curativas
-  maxStackSize: 10
+  maxStackSize: 99

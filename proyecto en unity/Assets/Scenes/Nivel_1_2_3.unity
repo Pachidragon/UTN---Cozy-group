@@ -305153,7 +305153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControlToggle
   movement: {fileID: 1705163110}
   cameraManager: {fileID: 159274403}
-  interactor: {fileID: 0}
+  interactor: {fileID: 1705163111}
 --- !u!1001 &512539009
 PrefabInstance:
   m_ObjectHideFlags: 0

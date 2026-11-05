@@ -16,7 +16,7 @@ public class SonidoRecoleccion : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (cerrandoEscena || sonido == null)
+        if (cerrandoEscena || !gameObject.scene.isLoaded || sonido == null)
             return;
 
         GameObject audioTemporal = new GameObject("SFX_Recoleccion");
